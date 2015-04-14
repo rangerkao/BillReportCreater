@@ -2,13 +2,15 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/jasperreports-5.1.0.jar/jasperreports-5.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/workspace/BillReportCreater/bin/source/kiru.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/org-apache-commons-logging.jar/org-apache-commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itextpdf-5.5.3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/commons-digester-2.1.jar/commons-digester-2.1.jar" sourcepath="C:/Users/ranger.kao/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/org.apache.commons.collections.jar/org.apache.commons.collections.jar"/>
 	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/org.apache.commons.beanutils.jar/org.apache.commons.beanutils.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-2.1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/jasperreports-6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/jasperreports-fonts-6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itextpdf-5.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itext-xtra-5.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itext-pdfa-5.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/billFont.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

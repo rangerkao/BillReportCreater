@@ -1,5 +1,6 @@
 package bill.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsageDetail {
@@ -32,10 +33,10 @@ public class UsageDetail {
 	private String Data; //Bean 內容資料
 
 	public UsageDetail(){
-		
 	}
 	
 	public UsageDetail(List<String> list){
+		
 		int n=0;
 		if(list!=null) n=list.size();
 		if(n>=24)n=24;
@@ -82,7 +83,6 @@ public class UsageDetail {
 			String duration, String charge, String eventCount,
 			String chargeItemAbbName, String endDate, String endTime,
 			String packages, String subTotalPackages) {
-		super();
 		this.recordFlag = recordFlag;
 		this.accountNum = accountNum;
 		this.serviceCode = serviceCode;
@@ -108,7 +108,7 @@ public class UsageDetail {
 		this.packages = packages;
 		this.subTotalPackages = subTotalPackages;
 	}
-
+	
 	public String getRecordFlag() {
 		return recordFlag;
 	}
