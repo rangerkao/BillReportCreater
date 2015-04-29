@@ -2,15 +2,18 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/org-apache-commons-logging.jar/org-apache-commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/commons-digester-2.1.jar/commons-digester-2.1.jar" sourcepath="C:/Users/ranger.kao/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/org.apache.commons.collections.jar/org.apache.commons.collections.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/org.apache.commons.beanutils.jar/org.apache.commons.beanutils.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/jasperreports-6.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/jasperreports-fonts-6.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itextpdf-5.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itext-xtra-5.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/itext-5.5.3/itext-pdfa-5.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ranger.kao/Dropbox/download/billFont.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/billFont.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/Apache.commons/commons-beanutils-1.9.2.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/Apache.commons/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/Apache.commons/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/Apache.commons/org.apache.commons.collections.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/itext-5.5.3/itextpdf-5.5.3.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/itext-5.5.3/itext-pdfa-5.5.3.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/itext-5.5.3/itext-xtra-5.5.3.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/jasperreport/jasperreports-6.0.0.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/jasperreport/jasperreports-fonts-6.0.0.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/jasperreport/jasperreports-functions-6.0.0.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/jar/jasperreport/jasperreports-javaflow-6.0.0.jar"/>
+	<classpathentry kind="lib" path="G:/Dropbox/download/joda-time-2.0.jar/joda-time-2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

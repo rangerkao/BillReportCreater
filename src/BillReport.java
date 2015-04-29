@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,14 +12,18 @@ import java.util.Map;
 
 
 
-import java.util.regex.Pattern;
 
+
+
+
+import javax.swing.JTextArea;
+
+import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import bill.bean.BillData;
 import bill.bean.BillSubData;
 import bill.bean.Charge;
@@ -40,17 +43,40 @@ public class BillReport{
 		 * 3:FET
 		 * 4:iGlomo
 		 */
-		process("New Bill/Source/NTT_201502_PDF_without_Usage.txt",2);
+		process(filePath+"/"+"New Bill/Source/NTT_201502_PDF_without_Usage.txt",2);
 	}
+	JTextArea textPane=null;
 	
+	public BillReport(JTextArea textPane,String input,String output,String type){
+		this.textPane=textPane;
+		exportPath = output;
+		templatePath="";
+		process(input,Integer.valueOf(type));
+		textPane.setText(textPane.getText()+"\n"+"Converting end");
+	}
+	public BillReport(String[] arg){
+		exportPath = arg[1];
+		templatePath="";
+		process(arg[0],Integer.valueOf(arg[2]));
+	}
 	private static String FileName;
 	//private static final String filePath =BillReport.class.getClassLoader().getResource("").toString().replace("file:", "")+ "source/";
 	
-	String filePath="C:/Users/ranger.kao/Desktop/";
-	String templatePath="C:/Users/ranger.kao/Dropbox/workspace/BillReportCreater/src/";
-	String exportPath="C:/Users/ranger.kao/Desktop/bill/";
+	String filePath="C:/Users/ranger.kao/Desktop";
+	String templatePath="G:/Dropbox/workspace/BillReportCreater/src/";
+	String exportPath="C:/Users/ranger.kao/Desktop/bill";
 	public static void main(String[] args){
-		new BillReport();
+		if(args.length<3)
+			new BillReport();
+		else
+			new BillReport(args);
+			
+	}
+	
+	public void print(String s){
+		System.out.println(s);
+		if(textPane!=null)
+			textPane.setText(textPane.getText()+"\n"+s);
 	}
 	
 	public void process(String fileName,int type){
@@ -62,7 +88,7 @@ public class BillReport{
 		//FileName="85266400998.txt";
 		
 		
-		System.out.println("filePath:"+filePath+FileName);
+		print("filePath:"+FileName);
 		
 		BufferedReader reader = null;
 		
@@ -73,7 +99,7 @@ public class BillReport{
 
 		try {
 			//reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath+FileName),"unicode")); // 指定讀取文件的編碼格式，以免出現中文亂碼
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath+FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
 
 			
 			
@@ -100,7 +126,7 @@ public class BillReport{
 					}*/
 					count++;
 					r = new BillData();
-					System.out.println("proccess "+count+" file.");
+					print("proccess "+count+" file.");
 					
 					result.add(r);
 
@@ -131,7 +157,7 @@ public class BillReport{
 					bs = new BillSubData();
 					r.getBS().add(bs);
 					result.add(r);
-					System.out.println("proccess "+count+" file.");
+					print("proccess "+count+" file.");
 					bs.setU1(new Usage(list));
 				}else if("U2".equalsIgnoreCase(s)&& type==3){
 					bs.setU2(new Usage(list));
@@ -151,7 +177,7 @@ public class BillReport{
 					//clear R's data
 					bs.setR(new ArrayList<UsageDetail>());
 				}
-			//System.out.println(str);
+			//print(str);
 			}
 /*			
 			if(r!=null){
@@ -160,7 +186,7 @@ public class BillReport{
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			print(e.getMessage());
 		}finally {
 			try {
 			
@@ -168,12 +194,12 @@ public class BillReport{
 			
 			} catch (IOException e) {
 			
-			e.printStackTrace();
+			print(e.getMessage());
 			
 			}
 		}
 		
-		System.out.println("read file "+FileName+" finish!");
+		print("read file "+FileName+" finish!");
 
 		String templateName=null;
 		
@@ -197,27 +223,27 @@ public class BillReport{
 		}
 		
 		try {
+
 			jasperFile=JasperCompileManager.compileReportToFile(templatePath+templateName);
-			System.out.println("Load template success!");
+			print("Load template success!");
 			
 			if(result!=null){
 				for(int i=0;i<result.size();i++){
 					try {
-						System.out.println("create "+i);
+						print("create "+i);
 						if(templateName!=null)
 							creatPDF(result.get(i),type);
 					} catch (JRException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						print(e.getMessage());
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						print(e.getMessage());
 					}
 				}
 			}			
 		} catch (JRException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			print(e1.getMessage());
 		}
 
 	}
@@ -265,19 +291,17 @@ public class BillReport{
 			default:
 		}
 		
-		if(map!=null)
-			System.out.println("set parameter success!");
-		else
-			System.out.println("set parameter fail!");
+		if(map!=null){
+			print("set parameter success!");
+			String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JREmptyDataSource());
+			//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,null,new JREmptyDataSource());
+			//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JRBeanCollectionDataSource(data.getBS()));
+			print("create file success!"+fileName+".pdf");
 
-		String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JREmptyDataSource());
-		//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,null,new JREmptyDataSource());
-		//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JRBeanCollectionDataSource(data.getBS()));
-		System.out.println("create file success!");
-
-		System.out.println("Creating PDF file at "+exportPath+"!");
-		
-		JasperExportManager.exportReportToPdfFile(jrprintFile,exportPath+fileName+".pdf");
+			JasperExportManager.exportReportToPdfFile(jrprintFile,exportPath+"/"+fileName+".pdf");
+		}else{
+			print("set parameter fail!");
+		}
 	}
 	
 	private void dataProcess1(List<BillData> result){
@@ -482,7 +506,7 @@ public class BillReport{
 		//new
 		map.put("BS", data.getBS());
 
-		map.put("SUBREPORT_DIR", templatePath+"bill/template1/");
+		map.put("SUBREPORT_DIR", templatePath+"/bill/template1/");
 
 		return map;
 	}
@@ -526,7 +550,7 @@ public class BillReport{
 		map.put("r2gprsUsageCharges", data.getBS().get(0).getR2gprsUsageCharges());
 		map.put("r2mmsCharges", data.getBS().get(0).getR2mmsCharges());
 		
-		map.put("SUBREPORT_DIR", templatePath+"bill/template2/");
+		map.put("SUBREPORT_DIR", templatePath+"/bill/template2/");
 		//圖片
 		map.put("imageName", "sim2travel.jpg");
 		if(data.getBS().get(0).getP()!=null){
@@ -546,7 +570,7 @@ public class BillReport{
 		//參數設置
 		Map<String,Object> map=new HashMap<String,Object>();
 		
-		map.put("SUBREPORT_DIR", templatePath+"bill/template3/");
+		map.put("SUBREPORT_DIR", templatePath+"/bill/template3/");
 		//地址
 		map.put("address for",
 				data.getI().getPostalCode()+"\n"
