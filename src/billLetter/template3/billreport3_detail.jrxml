@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3_detail" pageWidth="555" pageHeight="790" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="92b497ab-1d65-4028-bce2-e15828976ccd">
+	<property name="ireport.zoom" value="2.8531167061100366"/>
+	<property name="ireport.x" value="703"/>
+	<property name="ireport.y" value="116"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\ranger.kao\\Dropbox\\workspace\\DVRS\\src\\source\\bill\\template3\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="D" class="java.util.List"/>
+	<parameter name="CustomerName" class="java.lang.String"/>
+	<parameter name="Billing Period" class="java.lang.String"/>
+	<parameter name="Currency" class="java.lang.String"/>
+	<parameter name="serviceCode" class="java.lang.String"/>
+	<parameter name="priceplan" class="java.lang.String"/>
+	<parameter name="TotalAmount" class="java.lang.String"/>
+	<parameter name="U1total" class="java.lang.String"/>
+	<parameter name="U2total" class="java.lang.String"/>
+	<parameter name="R" class="java.util.List"/>
+	<parameter name="PRE_PAGE_NUMBER" class="java.lang.Integer"/>
+	<parameter name="r1voiceUsageCharges" class="java.util.List"/>
+	<parameter name="r1smsCharges" class="java.util.List"/>
+	<parameter name="r1gprsUsageCharges" class="java.util.List"/>
+	<parameter name="r1mmsCharges" class="java.util.List"/>
+	<parameter name="voiceUsageCharges" class="java.util.List"/>
+	<parameter name="smsCharges" class="java.util.List"/>
+	<parameter name="gprsUsageCharges" class="java.util.List"/>
+	<parameter name="mmsCharges" class="java.util.List"/>
+	<parameter name="R1" class="java.util.List"/>
+	<field name="serviceCode" class="java.lang.String"/>
+	<field name="r1voiceUsageCharges" class="java.util.List"/>
+	<field name="r1smsCharges" class="java.util.List"/>
+	<field name="r1gprsUsageCharges" class="java.util.List"/>
+	<field name="r1mmsCharges" class="java.util.List"/>
+	<field name="voiceUsageCharges" class="java.util.List"/>
+	<field name="smsCharges" class="java.util.List"/>
+	<field name="gprsUsageCharges" class="java.util.List"/>
+	<field name="mmsCharges" class="java.util.List"/>
+	<field name="d" class="java.util.List"/>
+	<field name="totalAmount" class="java.lang.String"/>
+	<field name="u1total" class="java.lang.String"/>
+	<field name="u2total" class="java.lang.String"/>
+	<group name="default" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{serviceCode}]]></groupExpression>
+		<groupHeader>
+			<band height="53">
+				<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				<staticText>
+					<reportElement x="370" y="0" width="185" height="14" uuid="196afffb-91a0-4875-993d-72b696c303ea"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[頁次：]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="387" y="0" width="20" height="14" uuid="421d6ffb-e0f0-443b-8bba-9e2c0e5abda4"/>
+					<textElement textAlignment="Right">
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER})+"  /"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="370" y="39" width="185" height="14" uuid="f71b1f06-3338-45dd-aabc-56d07ec4e9ba"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["列帳期間："+$P{Billing Period}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToBandHeight" x="413" y="11" width="119" height="14" uuid="7df6acfe-5081-4f41-b6cd-bde22025063e"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{CustomerName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="38" width="211" height="14" uuid="8d384564-7849-47db-bb6e-d165270e8e99"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[客服電話專線: 02-25683288]]></text>
+				</staticText>
+				<textField evaluationTime="Report">
+					<reportElement x="407" y="0" width="21" height="14" uuid="ffec885f-3a99-410a-832a-52171e92f81b"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER}+1)]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="370" y="25" width="185" height="14" uuid="9e8d3b0f-08c8-43a9-a02d-b7b12d682103"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["台灣門號："+$F{serviceCode}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="370" y="11" width="43" height="14" uuid="c6052bb0-3b77-4622-92a5-69e7672caf1b"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[用戶名稱：]]></text>
+				</staticText>
+			</band>
+			<band height="29">
+				<printWhenExpression><![CDATA[$V{PAGE_NUMBER}==1]]></printWhenExpression>
+				<textField>
+					<reportElement positionType="Float" x="370" y="14" width="185" height="14" uuid="f548e46e-8481-4b23-ac46-a4fe01efb888"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["計算幣別："+$P{Currency}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToBandHeight" x="411" y="0" width="144" height="14" uuid="20eda990-ce4f-4794-a873-6664d29d3f10"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{priceplan}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="370" y="0" width="41" height="14" uuid="25df6dee-2f7d-430b-addd-e92837b75cf2"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[資費方案：]]></text>
+				</staticText>
+			</band>
+			<band height="79">
+				<printWhenExpression><![CDATA[$V{PAGE_NUMBER}>1]]></printWhenExpression>
+				<textField>
+					<reportElement positionType="Float" x="370" y="49" width="185" height="14" uuid="967af74d-78c9-4a41-9ab9-4895a7e036b5"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["計算幣別："+$P{Currency}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="370" y="27" width="185" height="14" uuid="0a014bb4-cfbd-489b-a0ba-e7d875d3c5cd"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["台灣門號："+$F{serviceCode}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="40" width="211" height="14" uuid="1ad4cffa-d2e7-4175-a723-78da846f4cd1"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[客服電話專線: 02-25683288]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="370" y="0" width="185" height="14" uuid="a4db19dc-4b22-40e0-aea9-6643f11b0416"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[頁次：]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement stretchType="RelativeToBandHeight" x="413" y="13" width="119" height="14" uuid="8b5bbc78-e1bf-4118-9919-a75dafa4d9c6"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{CustomerName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="387" y="0" width="20" height="14" uuid="8ed5a759-ba46-465d-9895-3186ae03a50b"/>
+					<textElement textAlignment="Right">
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER})+"  /"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="407" y="0" width="21" height="14" uuid="2779680a-cc72-4832-9fda-ef06416ab8e2"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER}+1)]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="370" y="37" width="185" height="14" uuid="74209ea4-241e-4688-8a96-9f6e3a4c50b9"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA["列帳期間："+$P{Billing Period}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="370" y="13" width="43" height="14" uuid="1d779d53-9cc5-46f8-b4fa-75768f850838"/>
+					<textElement>
+						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[用戶名稱：]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="692" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="58" uuid="dd380bd3-8dec-4bb6-b1f6-ba341d73412a"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{d})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_charge.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="667" width="555" height="25" backcolor="#CCCCCC" uuid="a906c840-b95f-462e-ae56-f31ffce0e181"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  通信服務費合計]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="447" y="667" width="100" height="25" uuid="9b960adc-b29a-4823-bc4d-44fc50e268eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format(Double.valueOf($F{totalAmount}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="667" width="100" height="25" uuid="d4319238-f869-40f5-8e8f-12e2ca66cffe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Source Han Sans TC Normal" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Currency}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="68">
+			<printWhenExpression><![CDATA[$P{R1}.size()>0]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="68" uuid="0351ce85-197d-49f2-9e5e-3de94357a2cb"/>
+				<subreportParameter name="total">
+					<subreportParameterExpression><![CDATA[$F{u1total}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="voiceUsageCharges">
+					<subreportParameterExpression><![CDATA[$F{r1voiceUsageCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="gprsUsageCharges">
+					<subreportParameterExpression><![CDATA[$F{r1gprsUsageCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CategoryName">
+					<subreportParameterExpression><![CDATA["通話費"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="mmsCharges">
+					<subreportParameterExpression><![CDATA[$F{r1mmsCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Currency">
+					<subreportParameterExpression><![CDATA[$P{Currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="smsCharges">
+					<subreportParameterExpression><![CDATA[$F{r1smsCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_usage.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="68">
+			<printWhenExpression><![CDATA[$P{R}.size()>0]]></printWhenExpression>
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="68" uuid="ecff73b1-5dba-4dbe-9fe3-f929d7cd924e"/>
+				<subreportParameter name="total">
+					<subreportParameterExpression><![CDATA[$F{u2total}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="voiceUsageCharges">
+					<subreportParameterExpression><![CDATA[$F{voiceUsageCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="gprsUsageCharges">
+					<subreportParameterExpression><![CDATA[$F{gprsUsageCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CategoryName">
+					<subreportParameterExpression><![CDATA["代收國際通信費"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="mmsCharges">
+					<subreportParameterExpression><![CDATA[$F{mmsCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Currency">
+					<subreportParameterExpression><![CDATA[$P{Currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="smsCharges">
+					<subreportParameterExpression><![CDATA[$F{smsCharges}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_usage_oversea.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

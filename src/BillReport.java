@@ -16,6 +16,8 @@ import java.util.Map;
 
 
 
+
+
 import javax.swing.JTextArea;
 
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
@@ -24,6 +26,8 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import bill.bean.BillData;
 import bill.bean.BillSubData;
 import bill.bean.Charge;
@@ -43,7 +47,7 @@ public class BillReport{
 		 * 3:FET
 		 * 4:iGlomo
 		 */
-		process(filePath+"/"+"New Bill/Source/NTT_201502_PDF_without_Usage.txt",2);
+		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_without_Usage/S2T_201501_PDF_without_Usage.txt",1);
 	}
 	JTextArea textPane=null;
 	
@@ -207,7 +211,7 @@ public class BillReport{
 		switch(type){
 			case 1:
 			case 2:
-				templateName="bill/template1/billreport.jrxml";
+				templateName="billLetter/template1/billreport.jrxml";
 				dataProcess1(result);
 				break;
 			case 3:
@@ -223,7 +227,6 @@ public class BillReport{
 		}
 		
 		try {
-
 			jasperFile=JasperCompileManager.compileReportToFile(templatePath+templateName);
 			print("Load template success!");
 			

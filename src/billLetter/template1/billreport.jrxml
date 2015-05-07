@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="609" pageHeight="794" columnWidth="569" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
 	<property name="ireport.zoom" value="1.331000000000024"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1891"/>
+	<property name="ireport.y" value="1057"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -31,7 +31,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="708" splitType="Stretch">
+		<band height="660" splitType="Stretch">
 			<staticText>
 				<reportElement x="289" y="110" width="100" height="14" uuid="a608d534-c271-45a9-ba0d-211c29763f6b"/>
 				<textElement>
@@ -64,7 +64,7 @@
 By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credit card.  I can change my credit card on file simply by dialing +886960840112 and notifying Sim2Travel of my request.]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="471" width="554" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
+				<reportElement x="2" y="431" width="565" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
 					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
 				</reportElement>
 				<graphicElement>
@@ -93,7 +93,7 @@ By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credi
 				<textFieldExpression><![CDATA["Billing Period :  "+$P{Billing Period}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="3" y="485" width="550" height="213" uuid="29f44ebd-209c-45eb-88ca-e6ce312d0b99">
+				<reportElement x="5" y="445" width="560" height="213" uuid="29f44ebd-209c-45eb-88ca-e6ce312d0b99">
 					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -182,7 +182,7 @@ For derail rate plan please visit:]]></text>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="3" y="471" width="100" height="14" uuid="298b3936-e031-4d5c-82f1-5bd078b8dcfd">
+				<reportElement x="5" y="431" width="100" height="14" uuid="298b3936-e031-4d5c-82f1-5bd078b8dcfd">
 					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -191,7 +191,7 @@ For derail rate plan please visit:]]></text>
 				<text><![CDATA[Important Notice:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="681" width="256" height="20" uuid="5c89c3c8-0b1d-4b27-8fea-fba1dc662ad3">
+				<reportElement x="9" y="640" width="256" height="20" uuid="5c89c3c8-0b1d-4b27-8fea-fba1dc662ad3">
 					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -252,10 +252,10 @@ For derail rate plan please visit:]]></text>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="694" splitType="Stretch">
+		<band height="660" splitType="Stretch">
 			<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
 			<staticText>
-				<reportElement x="20" y="545" width="289" height="100" uuid="b504ee83-d048-48d9-a37b-3bbfdb77448f">
+				<reportElement x="20" y="516" width="289" height="100" uuid="b504ee83-d048-48d9-a37b-3bbfdb77448f">
 					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -269,14 +269,14 @@ Bank Address: 12 Queen's Road Central, Hong Kong
 Bill Number: ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="19" y="0" width="517" height="15" backcolor="#CCCCCC" uuid="b3620d67-3e91-4cb7-9544-5a78ada4dbe3"/>
+				<reportElement mode="Opaque" x="19" y="0" width="534" height="15" backcolor="#CCCCCC" uuid="b3620d67-3e91-4cb7-9544-5a78ada4dbe3"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<text><![CDATA[General Information]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="19" y="15" width="517" height="447" uuid="cb768609-d74f-449b-b925-b00cfbbb4d7a"/>
+				<reportElement x="19" y="15" width="535" height="409" uuid="cb768609-d74f-449b-b925-b00cfbbb4d7a"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
 				</textElement>
@@ -300,8 +300,6 @@ Bill Number: ]]></text>
     •You can also reach us via your Sim2Travel phone: simply dial *123# or access the "Sim2Travel" menu option from your Sim2Travel handset and press the "Service access" option followed by the "Customer service" option.
     •Visit our website http://www.sim2travel.com
 
-
-
 With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will enjoy:
 •Maintaining in one SIM card, local numbers in China, Hong Kong and Taiwan which you can be reached at any time, even when traveling outsid of our partner networks.
 •Free Fwd to S2T, allowing you to forward all calls from your home mobile or landline numbers to your Sim2Travel local numbers, so you are always in touch with your home friends, family members and business associates, even when traveling abroad.
@@ -321,14 +319,14 @@ With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will 
 ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="20" y="476" width="516" height="57" uuid="b5e55232-77e9-49a4-b137-e6f3de3cbedf"/>
+				<reportElement x="19" y="438" width="535" height="72" uuid="b5e55232-77e9-49a4-b137-e6f3de3cbedf"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["2".equals($P{PaymentMethod}) ? "Sim2Travel (Blue Ocean Alliance & rMVNO) accepts payment by VISA or MasterCard only. Each Sim2Travel bill will be charged to the credit card that you have provided.":"Sim2Travel (Blue Ocean Alliance & rMVNO) accepts payment via bank wire transfer. The total amount due must be paid in Hong Kong Dollars (HKD) via bank wire transfer. before / on the 25 of the current month. Payment MUST include the full name and bill number. Transfer should be made directly to our billing partner Sim2Travel Inc."]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="70" y="606" width="199" height="20" uuid="e6f4a0c8-d3de-49a6-b373-69f40090ace0">
+				<reportElement x="72" y="578" width="199" height="20" uuid="e6f4a0c8-d3de-49a6-b373-69f40090ace0">
 					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -337,38 +335,17 @@ With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will 
 				<textFieldExpression><![CDATA[$P{InvoiceNo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="20" y="462" width="100" height="14" uuid="732ca417-ba62-4d93-b97d-4833ee212957"/>
+				<reportElement x="20" y="424" width="100" height="14" uuid="732ca417-ba62-4d93-b97d-4833ee212957"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[How to pay:]]></text>
 			</staticText>
 		</band>
-		<band height="694">
+		<band height="566">
 			<printWhenExpression><![CDATA[$P{reportType}==2]]></printWhenExpression>
 			<staticText>
-				<reportElement x="18" y="545" width="255" height="100" uuid="51daf1b1-a990-42ca-ad03-b72f8a62f0fa">
-					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
-				</reportElement>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Beneficiary: Sim2travel Inc.
-A/C No.: 328-24-21800-9
-Bank Name: Shanghai Commercial Bank Ltd.
-Swift Code: SCBKHKHH
-Bank Address: 12 Queen's Road Central, Hong Kong
-Bill Number: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="20" y="0" width="517" height="15" backcolor="#CCCCCC" uuid="323bf595-69f8-4d14-babf-fd407fac0465"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[General Information]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="19" y="15" width="517" height="245" uuid="843ac0ed-f051-4ac8-a3a7-7c1f869b7502"/>
+				<reportElement x="20" y="15" width="535" height="245" uuid="843ac0ed-f051-4ac8-a3a7-7c1f869b7502"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
 				</textElement>
@@ -389,8 +366,29 @@ Bill Number: ]]></text>
 
 ]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="19" y="431" width="255" height="100" uuid="51daf1b1-a990-42ca-ad03-b72f8a62f0fa">
+					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiary: Sim2travel Inc.
+A/C No.: 328-24-21800-9
+Bank Name: Shanghai Commercial Bank Ltd.
+Swift Code: SCBKHKHH
+Bank Address: 12 Queen's Road Central, Hong Kong
+Bill Number: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="20" y="0" width="535" height="15" backcolor="#CCCCCC" uuid="323bf595-69f8-4d14-babf-fd407fac0465"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[General Information]]></text>
+			</staticText>
 			<textField>
-				<reportElement x="67" y="606" width="165" height="20" uuid="003642ef-3fbf-4d0a-9f66-e8cca508f277">
+				<reportElement x="69" y="491" width="165" height="20" uuid="003642ef-3fbf-4d0a-9f66-e8cca508f277">
 					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -399,14 +397,14 @@ Bill Number: ]]></text>
 				<textFieldExpression><![CDATA[$P{InvoiceNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="18" y="494" width="518" height="49" uuid="77a557c8-32cd-460c-b755-ca4e94f3a232"/>
+				<reportElement x="19" y="380" width="535" height="49" uuid="77a557c8-32cd-460c-b755-ca4e94f3a232"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["2".equals($P{PaymentMethod}) ? "HKNet accepts payment by VISA or MasterCard only. Each Sim2Travel bill will be charged to the credit card that you have provided.":"HKNet accepts payment via bank wire transfer. The total amount due must be paid in Hong Kong Dollars (HKD) via bank wire transfer. before / on the 25 of the current month. Payment MUST include the full name and bill number. Transfer should be made directly to our billing partner Sim2Travel Inc."]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="19" y="480" width="121" height="14" uuid="0560fda2-9041-45b8-8b1a-bc60a6c4b70d"/>
+				<reportElement x="20" y="366" width="121" height="14" uuid="0560fda2-9041-45b8-8b1a-bc60a6c4b70d"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
@@ -427,7 +425,7 @@ Bill Number: ]]></text>
 				<textFieldExpression><![CDATA[$P{contactTitle}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="694">
+		<band height="566">
 			<printWhenExpression><![CDATA[$P{BS}!=null && $P{BS}.size()>0]]></printWhenExpression>
 			<staticText>
 				<reportElement x="29" y="15" width="100" height="448" uuid="cb0c5870-103a-4ca6-a7ac-8b2cbdd7d093"/>
@@ -529,7 +527,7 @@ MMS Charges]]></text>
 		</band>
 		<band height="52">
 			<subreport>
-				<reportElement x="1" y="0" width="555" height="52" uuid="a3def701-862c-49c3-86b6-0732be2eb6bd"/>
+				<reportElement x="0" y="0" width="569" height="52" uuid="a3def701-862c-49c3-86b6-0732be2eb6bd"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>
