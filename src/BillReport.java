@@ -47,21 +47,25 @@ public class BillReport{
 		 * 3:FET
 		 * 4:iGlomo
 		 */
-		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_without_Usage/S2T_201501_PDF_without_Usage.txt",1);
+		/**
+		 * 1 A4
+		 * 2 Letter
+		 */
+		process(filePath+"/"+"NTT_201504_PDF_Local_UTF8.txt",2,1);
 	}
 	JTextArea textPane=null;
 	
-	public BillReport(JTextArea textPane,String input,String output,String type){
+	public BillReport(JTextArea textPane,String input,String output,String type,String type2){
 		this.textPane=textPane;
 		exportPath = output;
 		templatePath="";
-		process(input,Integer.valueOf(type));
+		process(input,Integer.valueOf(type),Integer.valueOf(type2));
 		textPane.setText(textPane.getText()+"\n"+"Converting end");
 	}
 	public BillReport(String[] arg){
 		exportPath = arg[1];
 		templatePath="";
-		process(arg[0],Integer.valueOf(arg[2]));
+		process(arg[0],Integer.valueOf(arg[2]),Integer.valueOf(arg[3]));
 	}
 	private static String FileName;
 	//private static final String filePath =BillReport.class.getClassLoader().getResource("").toString().replace("file:", "")+ "source/";
@@ -83,7 +87,19 @@ public class BillReport{
 			textPane.setText(textPane.getText()+"\n"+s);
 	}
 	
-	public void process(String fileName,int type){
+	public void process(String fileName,int type,int type2){
+		
+		String sType2="";
+		
+		switch(type2){
+			case 1:
+				sType2 = "bill";
+				break;
+			case 2:
+				sType2 = "billLetter";
+				break;
+			default :	
+		}
 		
 		FileName=fileName;
 		
@@ -102,8 +118,8 @@ public class BillReport{
 		List<BillData> result = new ArrayList<BillData>();
 
 		try {
-			//reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath+FileName),"unicode")); // 指定讀取文件的編碼格式，以免出現中文亂碼
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName),"unicode")); // 指定讀取文件的編碼格式，以免出現中文亂碼
+			//reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
 
 			
 			
@@ -211,15 +227,15 @@ public class BillReport{
 		switch(type){
 			case 1:
 			case 2:
-				templateName="billLetter/template1/billreport.jrxml";
+				templateName=sType2+"/template1/billreport.jrxml";
 				dataProcess1(result);
 				break;
 			case 3:
-				templateName="bill/template2/billreport2.jrxml";
+				templateName=sType2+"/template2/billreport2.jrxml";
 				dataProcess1(result);
 				break;
 			case 4:
-				templateName="bill/template3/billreport3.jrxml";
+				templateName=sType2+"/template3/billreport3.jrxml";
 				dataProcess1(result);
 				break;
 			default:

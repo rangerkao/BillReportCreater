@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge_sms" pageWidth="609" pageHeight="794" columnWidth="609" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f368f98d-18fd-4f92-8c3b-dc470cd7a579">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge_sms" pageWidth="569" pageHeight="794" columnWidth="569" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f368f98d-18fd-4f92-8c3b-dc470cd7a579">
 	<property name="ireport.zoom" value="1.4641000000000013"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -30,7 +30,7 @@
 	<pageHeader>
 		<band height="44">
 			<staticText>
-				<reportElement x="179" y="14" width="50" height="30" uuid="e3ca0d4b-86a2-49cf-9bd2-232569eb773f"/>
+				<reportElement x="181" y="14" width="50" height="30" uuid="e3ca0d4b-86a2-49cf-9bd2-232569eb773f"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -39,7 +39,7 @@ Destination
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="574" y="15" width="35" height="15" uuid="69f30aba-595b-4aad-9276-5d8d9d4be7c5"/>
+				<reportElement x="534" y="15" width="35" height="15" uuid="69f30aba-595b-4aad-9276-5d8d9d4be7c5"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -55,7 +55,7 @@ Destination
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="460" y="14" width="44" height="15" uuid="d37d25d0-284a-4fc9-a0b0-66f19e88248e"/>
+				<reportElement x="417" y="14" width="44" height="15" uuid="d37d25d0-284a-4fc9-a0b0-66f19e88248e"/>
 				<textElement textAlignment="Left">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -63,7 +63,7 @@ Destination
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="327" y="15" width="106" height="15" uuid="2a3b87a0-b359-4cc2-84de-770d633dbcbd"/>
+				<reportElement x="303" y="15" width="106" height="15" uuid="2a3b87a0-b359-4cc2-84de-770d633dbcbd"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -71,7 +71,7 @@ Destination
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="108" y="14" width="50" height="30" uuid="db956f20-075d-44d3-872c-755a0b2291eb"/>
+				<reportElement x="116" y="14" width="50" height="30" uuid="db956f20-075d-44d3-872c-755a0b2291eb"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -88,14 +88,14 @@ Destination
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="262" y="15" width="41" height="15" uuid="22c19ca0-a785-4111-8c78-715fb7da4fa0"/>
+				<reportElement x="252" y="15" width="41" height="15" uuid="22c19ca0-a785-4111-8c78-715fb7da4fa0"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<text><![CDATA[Direction]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="526" y="14" width="32" height="30" uuid="bca01f83-2069-4393-82a1-8c2204024adb"/>
+				<reportElement x="484" y="14" width="32" height="30" uuid="bca01f83-2069-4393-82a1-8c2204024adb"/>
 				<textElement textAlignment="Left">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -103,7 +103,7 @@ Destination
 Charges]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="609" height="15" backcolor="#CCCCCC" uuid="c51c6308-33d1-4185-8961-229b24358d63"/>
+				<reportElement mode="Opaque" x="0" y="0" width="569" height="15" backcolor="#CCCCCC" uuid="c51c6308-33d1-4185-8961-229b24358d63"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
@@ -122,74 +122,74 @@ Charges]]></text>
 				<textFieldExpression><![CDATA[$F{startDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="57" y="0" width="38" height="15" uuid="8fa4f6a4-ef02-45ca-b88f-f4c162bedeea"/>
+				<reportElement x="57" y="0" width="59" height="15" uuid="8fa4f6a4-ef02-45ca-b88f-f4c162bedeea"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{startTime}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="108" y="0" width="50" height="15" uuid="b7786361-16fc-4885-9b4b-0e19e9ee8d37"/>
+				<reportElement x="116" y="0" width="50" height="15" uuid="b7786361-16fc-4885-9b4b-0e19e9ee8d37"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{callerDestination}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="179" y="0" width="67" height="15" uuid="f7432cbc-78d1-47a2-802e-195d1dbbfed6"/>
+				<reportElement x="181" y="0" width="67" height="15" uuid="f7432cbc-78d1-47a2-802e-195d1dbbfed6"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{calleeDestination}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="262" y="0" width="41" height="15" uuid="53aa05e9-9bb2-4b21-847e-6ba65923ff8d"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{callType}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="327" y="0" width="93" height="15" uuid="6576feb5-6d3e-4c93-9b5f-359d1481cb76"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{CallingOrCalled}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="460" y="0" width="44" height="15" uuid="b4fb1714-5850-4608-a15f-ccc5506a5a56"/>
+				<reportElement x="417" y="0" width="44" height="15" uuid="b4fb1714-5850-4608-a15f-ccc5506a5a56"/>
 				<textElement textAlignment="Left">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{eventCount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="574" y="0" width="35" height="15" uuid="8f23bf0f-cc51-4e29-a1a6-edf30f27abee"/>
+				<reportElement x="534" y="0" width="35" height="15" uuid="8f23bf0f-cc51-4e29-a1a6-edf30f27abee"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{chargeItemAbbName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="521" y="0" width="37" height="15" uuid="067583f6-875b-46a3-a3c1-a2b0cb1cb1b4"/>
+				<reportElement x="479" y="0" width="37" height="15" uuid="067583f6-875b-46a3-a3c1-a2b0cb1cb1b4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format(Double.valueOf($F{charge}))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="0" width="41" height="15" uuid="53aa05e9-9bb2-4b21-847e-6ba65923ff8d"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{callType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="0" width="93" height="15" uuid="6576feb5-6d3e-4c93-9b5f-359d1481cb76"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{CallingOrCalled}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<lastPageFooter>
 		<band height="15">
 			<textField>
-				<reportElement x="460" y="0" width="44" height="15" uuid="da0a0251-b021-47c0-9213-9e8e26a2961d"/>
+				<reportElement x="417" y="0" width="44" height="15" uuid="da0a0251-b021-47c0-9213-9e8e26a2961d"/>
 				<textElement textAlignment="Left">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{subTotalMessages}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="521" y="0" width="37" height="15" uuid="65e911fc-cc9b-4157-ab5a-4abd9f5a3fbf"/>
+				<reportElement x="479" y="0" width="37" height="15" uuid="65e911fc-cc9b-4157-ab5a-4abd9f5a3fbf"/>
 				<textElement textAlignment="Right">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>

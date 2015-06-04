@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge" pageWidth="609" pageHeight="794" columnWidth="609" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="76d8b797-b567-419f-b743-76d9cb33953d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge" pageWidth="569" pageHeight="794" columnWidth="569" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="76d8b797-b567-419f-b743-76d9cb33953d">
 	<property name="ireport.zoom" value="1.2100000000000026"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -16,21 +16,21 @@
 		<groupFooter>
 			<band height="20">
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="0" width="609" height="20" backcolor="#CCCCCC" uuid="de5c29a3-f124-48a2-bc0d-d993596435f4"/>
+					<reportElement mode="Opaque" x="0" y="0" width="569" height="20" backcolor="#CCCCCC" uuid="de5c29a3-f124-48a2-bc0d-d993596435f4"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Total Current Charges]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="509" y="0" width="100" height="20" uuid="6eb59e28-c709-4bcf-9cf5-78ab8ef39682"/>
+					<reportElement x="469" y="0" width="100" height="20" uuid="6eb59e28-c709-4bcf-9cf5-78ab8ef39682"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 					</textElement>
 					<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{totalCurrentCharge})]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="418" y="0" width="100" height="20" uuid="408965d6-87fd-4116-afde-aa9fa1ed4cbe"/>
+					<reportElement x="378" y="0" width="100" height="20" uuid="408965d6-87fd-4116-afde-aa9fa1ed4cbe"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 					</textElement>
@@ -45,7 +45,7 @@
 	<detail>
 		<band height="34">
 			<subreport>
-				<reportElement x="0" y="0" width="609" height="34" uuid="1e141970-e069-45e1-a97b-be29753b8f89"/>
+				<reportElement x="0" y="0" width="569" height="34" uuid="1e141970-e069-45e1-a97b-be29753b8f89"/>
 				<subreportParameter name="SUBREPORT_DIR">
 					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>

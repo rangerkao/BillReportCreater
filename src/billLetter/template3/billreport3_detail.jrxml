@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3_detail" pageWidth="555" pageHeight="790" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="92b497ab-1d65-4028-bce2-e15828976ccd">
-	<property name="ireport.zoom" value="2.8531167061100366"/>
-	<property name="ireport.x" value="703"/>
-	<property name="ireport.y" value="116"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3_detail" pageWidth="569" pageHeight="674" columnWidth="569" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="92b497ab-1d65-4028-bce2-e15828976ccd">
+	<property name="ireport.zoom" value="1.7715610000000224"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1292"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\ranger.kao\\Dropbox\\workspace\\DVRS\\src\\source\\bill\\template3\\"]]></defaultValueExpression>
 	</parameter>
@@ -197,28 +197,28 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="692" splitType="Stretch">
+		<band height="674" splitType="Stretch">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="58" uuid="dd380bd3-8dec-4bb6-b1f6-ba341d73412a"/>
+				<reportElement x="0" y="0" width="569" height="58" uuid="dd380bd3-8dec-4bb6-b1f6-ba341d73412a"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{d})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_charge.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="667" width="555" height="25" backcolor="#CCCCCC" uuid="a906c840-b95f-462e-ae56-f31ffce0e181"/>
+				<reportElement mode="Opaque" x="0" y="649" width="569" height="25" backcolor="#CCCCCC" uuid="a906c840-b95f-462e-ae56-f31ffce0e181"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[  通信服務費合計]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="447" y="667" width="100" height="25" uuid="9b960adc-b29a-4823-bc4d-44fc50e268eb"/>
+				<reportElement x="469" y="649" width="100" height="25" uuid="9b960adc-b29a-4823-bc4d-44fc50e268eb"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format(Double.valueOf($F{totalAmount}))]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="313" y="667" width="100" height="25" uuid="d4319238-f869-40f5-8e8f-12e2ca66cffe"/>
+				<reportElement x="335" y="649" width="100" height="25" uuid="d4319238-f869-40f5-8e8f-12e2ca66cffe"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -228,7 +228,7 @@
 		<band height="68">
 			<printWhenExpression><![CDATA[$P{R1}.size()>0]]></printWhenExpression>
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="68" uuid="0351ce85-197d-49f2-9e5e-3de94357a2cb"/>
+				<reportElement x="0" y="0" width="569" height="68" uuid="0351ce85-197d-49f2-9e5e-3de94357a2cb"/>
 				<subreportParameter name="total">
 					<subreportParameterExpression><![CDATA[$F{u1total}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -260,7 +260,7 @@
 		<band height="68">
 			<printWhenExpression><![CDATA[$P{R}.size()>0]]></printWhenExpression>
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="68" uuid="ecff73b1-5dba-4dbe-9fe3-f929d7cd924e"/>
+				<reportElement x="0" y="0" width="569" height="68" uuid="ecff73b1-5dba-4dbe-9fe3-f929d7cd924e"/>
 				<subreportParameter name="total">
 					<subreportParameterExpression><![CDATA[$F{u2total}]]></subreportParameterExpression>
 				</subreportParameter>

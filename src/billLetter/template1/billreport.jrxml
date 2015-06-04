@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="609" pageHeight="794" columnWidth="569" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
 	<property name="ireport.zoom" value="1.331000000000024"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1057"/>
+	<property name="ireport.y" value="2928"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -326,7 +326,7 @@ With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will 
 				<textFieldExpression><![CDATA["2".equals($P{PaymentMethod}) ? "Sim2Travel (Blue Ocean Alliance & rMVNO) accepts payment by VISA or MasterCard only. Each Sim2Travel bill will be charged to the credit card that you have provided.":"Sim2Travel (Blue Ocean Alliance & rMVNO) accepts payment via bank wire transfer. The total amount due must be paid in Hong Kong Dollars (HKD) via bank wire transfer. before / on the 25 of the current month. Payment MUST include the full name and bill number. Transfer should be made directly to our billing partner Sim2Travel Inc."]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="72" y="578" width="199" height="20" uuid="e6f4a0c8-d3de-49a6-b373-69f40090ace0">
+				<reportElement x="72" y="577" width="199" height="20" uuid="e6f4a0c8-d3de-49a6-b373-69f40090ace0">
 					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -342,7 +342,7 @@ With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will 
 				<text><![CDATA[How to pay:]]></text>
 			</staticText>
 		</band>
-		<band height="566">
+		<band height="660">
 			<printWhenExpression><![CDATA[$P{reportType}==2]]></printWhenExpression>
 			<staticText>
 				<reportElement x="20" y="15" width="535" height="245" uuid="843ac0ed-f051-4ac8-a3a7-7c1f869b7502"/>
@@ -425,7 +425,7 @@ Bill Number: ]]></text>
 				<textFieldExpression><![CDATA[$P{contactTitle}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="566">
+		<band height="660">
 			<printWhenExpression><![CDATA[$P{BS}!=null && $P{BS}.size()>0]]></printWhenExpression>
 			<staticText>
 				<reportElement x="29" y="15" width="100" height="448" uuid="cb0c5870-103a-4ca6-a7ac-8b2cbdd7d093"/>

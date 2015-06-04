@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="868c74a1-0c15-4304-864c-d7429631e3aa">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2" pageWidth="609" pageHeight="794" columnWidth="569" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="868c74a1-0c15-4304-864c-d7429631e3aa">
 	<property name="ireport.zoom" value="1.7715610000000177"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2460"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="serviceCode" class="java.lang.String"/>
 	<parameter name="Billing Period" class="java.lang.String"/>
@@ -111,7 +111,7 @@ China: +86 13910489009]]></text>
 	<detail>
 		<band height="49">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="49" uuid="9f9f9503-58dd-4de2-8343-f8182c00ce41"/>
+				<reportElement x="0" y="0" width="569" height="49" uuid="9f9f9503-58dd-4de2-8343-f8182c00ce41"/>
 				<subreportParameter name="total">
 					<subreportParameterExpression><![CDATA[$P{U1total}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -145,7 +145,7 @@ China: +86 13910489009]]></text>
 		</band>
 		<band height="49">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="49" uuid="11c555fa-1797-44bf-936c-970d6b548956"/>
+				<reportElement x="0" y="0" width="569" height="49" uuid="11c555fa-1797-44bf-936c-970d6b548956"/>
 				<subreportParameter name="voiceUsageCharges">
 					<subreportParameterExpression><![CDATA[$P{r2voiceUsageCharges}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -177,16 +177,16 @@ China: +86 13910489009]]></text>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport2_subreport.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="680">
+		<band height="632">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="118" width="555" height="25" backcolor="#CCCCCC" uuid="d90aae27-50f1-45f9-b57e-ed1f5ee105e4"/>
+				<reportElement mode="Opaque" x="0" y="118" width="569" height="25" backcolor="#CCCCCC" uuid="d90aae27-50f1-45f9-b57e-ed1f5ee105e4"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<text><![CDATA[  全球卡通信費優惠]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#CCCCCC" uuid="e9dc46c2-27ea-4621-9391-0c8f42375382"/>
+				<reportElement mode="Opaque" x="0" y="0" width="569" height="14" backcolor="#CCCCCC" uuid="e9dc46c2-27ea-4621-9391-0c8f42375382"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
@@ -194,7 +194,7 @@ China: +86 13910489009]]></text>
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="13" width="542" height="87" uuid="0bca113e-ea0c-48a5-9039-b3796a68e786"/>
+				<reportElement x="5" y="13" width="555" height="87" uuid="0bca113e-ea0c-48a5-9039-b3796a68e786"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -276,7 +276,7 @@ China: +86 13910489009]]></text>
 				<textFieldExpression><![CDATA[$P{TotalDiscount}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="5" y="143" width="542" height="524" uuid="f9847b37-8a9a-4870-a5a2-39aeae87c19f"/>
+				<reportElement x="5" y="143" width="555" height="489" uuid="f9847b37-8a9a-4870-a5a2-39aeae87c19f"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -306,9 +306,9 @@ Roaming Charges: Includes your roaming charges in partner networks or non-partne
 IDD transit from Taiwan: IDD transit from Taiwan while receiving the calls in partner networks.]]></text>
 			</staticText>
 		</band>
-		<band height="680">
+		<band height="632">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#CCCCCC" uuid="71c33ecf-8261-488a-b4c8-854857894ffe"/>
+				<reportElement mode="Opaque" x="0" y="0" width="569" height="14" backcolor="#CCCCCC" uuid="71c33ecf-8261-488a-b4c8-854857894ffe"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
@@ -316,7 +316,7 @@ IDD transit from Taiwan: IDD transit from Taiwan while receiving the calls in pa
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="5" y="18" width="93" height="622" uuid="aeca4ef5-4199-4cd7-852b-bff25716c292"/>
+				<reportElement x="5" y="18" width="93" height="614" uuid="aeca4ef5-4199-4cd7-852b-bff25716c292"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -364,7 +364,7 @@ VMCD_NP
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="98" y="18" width="234" height="622" uuid="76e105f3-1a28-4e36-a053-6fde798ce1e9"/>
+				<reportElement x="98" y="18" width="234" height="614" uuid="76e105f3-1a28-4e36-a053-6fde798ce1e9"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -406,7 +406,7 @@ Voice Mail Charges Discount_Partner Network
 Voice Mail Charges Discount_Non-Partner Network]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="334" y="18" width="221" height="622" uuid="2a2e88a6-ac2a-4c2c-91cc-c69652fc7bdc"/>
+				<reportElement x="334" y="18" width="221" height="614" uuid="2a2e88a6-ac2a-4c2c-91cc-c69652fc7bdc"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>

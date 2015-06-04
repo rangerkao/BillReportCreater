@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="40" bottomMargin="0" isTitleNewPage="true" uuid="ac2e0ac2-f70f-46fe-a5db-76ba23eb8e35">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3" pageWidth="609" pageHeight="794" columnWidth="569" leftMargin="20" rightMargin="20" topMargin="40" bottomMargin="0" isTitleNewPage="true" uuid="ac2e0ac2-f70f-46fe-a5db-76ba23eb8e35">
 	<property name="ireport.zoom" value="1.4641000000000266"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2497"/>
+	<property name="ireport.y" value="3084"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\ranger.kao\\Dropbox\\workspace\\DVRS\\src\\source\\bill\\template3\\"]]></defaultValueExpression>
 	</parameter>
@@ -33,7 +33,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="802">
+		<band height="754">
 			<staticText>
 				<reportElement mode="Opaque" x="10" y="510" width="537" height="14" backcolor="#CCCCCC" uuid="39e3b18c-0725-4c71-9281-39af400b69ae"/>
 				<textElement verticalAlignment="Middle">
@@ -345,9 +345,9 @@
 		</band>
 	</title>
 	<detail>
-		<band height="802" splitType="Stretch">
+		<band height="754" splitType="Stretch">
 			<staticText>
-				<reportElement x="9" y="93" width="531" height="267" uuid="cc82c67f-a270-4e0a-8769-53e7213f4ea4"/>
+				<reportElement x="9" y="93" width="555" height="267" uuid="cc82c67f-a270-4e0a-8769-53e7213f4ea4"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
@@ -373,7 +373,7 @@
 ■ 若你需補印帳單或申請明細帳單，請致電客戶服務專線　02-25683288查詢。]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="73" width="555" height="20" backcolor="#CCCCCC" uuid="eea94ea3-2a9c-42d3-aa05-6ae59acb8f2d"/>
+				<reportElement mode="Opaque" x="0" y="73" width="569" height="20" backcolor="#CCCCCC" uuid="eea94ea3-2a9c-42d3-aa05-6ae59acb8f2d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
@@ -415,9 +415,9 @@
 				<textFieldExpression><![CDATA[$P{InvoiceNo}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="802">
+		<band height="100">
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="100" uuid="3180f073-a4e2-4193-b353-fd680fcb9e51"/>
+				<reportElement x="0" y="0" width="569" height="100" uuid="3180f073-a4e2-4193-b353-fd680fcb9e51"/>
 				<subreportParameter name="PRE_PAGE_NUMBER">
 					<subreportParameterExpression><![CDATA[$V{PAGE_NUMBER}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -523,7 +523,7 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+"  /"]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="722">
+		<band height="674">
 			<staticText>
 				<reportElement x="334" y="18" width="221" height="622" uuid="e90e8c75-0a60-48ca-b678-d959c665b2e8"/>
 				<textElement>
@@ -614,7 +614,7 @@ MMS Charges
 ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#CCCCCC" uuid="7316c458-ce04-41f5-ab44-65704e412c7e"/>
+				<reportElement mode="Opaque" x="0" y="0" width="569" height="14" backcolor="#CCCCCC" uuid="7316c458-ce04-41f5-ab44-65704e412c7e"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge" pageWidth="609" pageHeight="794" columnWidth="609" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="76d8b797-b567-419f-b743-76d9cb33953d">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge" pageWidth="569" pageHeight="794" columnWidth="569" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="76d8b797-b567-419f-b743-76d9cb33953d">
 	<property name="ireport.zoom" value="1.4641000000000008"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -24,14 +24,14 @@
 		<groupHeader>
 			<band height="15">
 				<textField>
-					<reportElement mode="Opaque" x="0" y="0" width="609" height="15" backcolor="#CCCCCC" uuid="6a24f52c-a9f7-46e7-b1fc-b884d074a87a"/>
+					<reportElement mode="Opaque" x="0" y="0" width="569" height="15" backcolor="#CCCCCC" uuid="6a24f52c-a9f7-46e7-b1fc-b884d074a87a"/>
 					<textElement>
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{categoryName}]]></textFieldExpression>
 				</textField>
 				<textField evaluationTime="Group" evaluationGroup="chargeCategory">
-					<reportElement x="509" y="0" width="100" height="15" uuid="1189ac7e-fb7c-402b-a7d7-00267eca0f94"/>
+					<reportElement x="469" y="0" width="100" height="15" uuid="1189ac7e-fb7c-402b-a7d7-00267eca0f94"/>
 					<textElement textAlignment="Right">
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 					</textElement>
@@ -49,7 +49,7 @@
 	<detail>
 		<band height="16">
 			<textField>
-				<reportElement x="429" y="0" width="80" height="15" uuid="4ddb5176-5a72-453b-be7c-23691c29818f"/>
+				<reportElement x="389" y="0" width="80" height="15" uuid="4ddb5176-5a72-453b-be7c-23691c29818f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>

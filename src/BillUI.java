@@ -288,7 +288,8 @@ public class BillUI {
             			btnNewButton_2.setEnabled(false);
             			btnNewButton_2.setVisible(false);
             			textArea.setText("Converting... Please wait...");
-            			new BillReport(textArea,chooser.getSelectedFile().toString(),chooser2.getSelectedFile().toString(),type[0]);
+            			//XXX
+            			new BillReport(textArea,chooser.getSelectedFile().toString(),chooser2.getSelectedFile().toString(),type[0],"1");
             			JOptionPane.showConfirmDialog(null, "Converting End");
             			btnNewButton_2.setEnabled(true);
             			btnNewButton_2.setVisible(true);
