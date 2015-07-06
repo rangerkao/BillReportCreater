@@ -43,6 +43,7 @@ public class BillReport{
 	public BillReport(){
 		/**
 		 * 1:S2T 
+		 * 11: 201507新需求，S2T不顯示圖案
 		 * 2:NTT
 		 * 3:FET
 		 * 4:iGlomo
@@ -51,7 +52,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"NTT_201504_PDF_Local_UTF8.txt",2,1);
+		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_with_Usage/S2T_201501_PDF_with_Usage.txt",11,1);
 	}
 	JTextArea textPane=null;
 	
@@ -65,7 +66,20 @@ public class BillReport{
 	public BillReport(String[] arg){
 		exportPath = arg[1];
 		templatePath="";
-		process(arg[0],Integer.valueOf(arg[2]),Integer.valueOf(arg[3]));
+		
+		if(arg.length<2){
+			System.out.println("Parameter too less!");
+			return;
+		}
+		
+		Integer type2=1;
+		if(arg.length>5)
+			type2=Integer.valueOf(arg[4]);
+		
+		String charSet=null;
+		if(arg.length>4)
+			charSet=arg[3];
+		process(arg[0],Integer.valueOf(arg[2]),type2,charSet);
 	}
 	private static String FileName;
 	//private static final String filePath =BillReport.class.getClassLoader().getResource("").toString().replace("file:", "")+ "source/";
@@ -86,19 +100,22 @@ public class BillReport{
 		if(textPane!=null)
 			textPane.setText(textPane.getText()+"\n"+s);
 	}
-	
-	public void process(String fileName,int type,int type2){
+	public void process(String fileName,int type){
+		process(fileName,type,null,null);
+	}
+	public void process(String fileName,int type,Integer type2){
+		process(fileName,type,type2,null);
+	}
+	public void process(String fileName,int type,Integer type2,String charSet){
 		
 		String sType2="";
 		
 		switch(type2){
-			case 1:
-				sType2 = "bill";
-				break;
 			case 2:
 				sType2 = "billLetter";
 				break;
 			default :	
+				sType2 = "bill";
 		}
 		
 		FileName=fileName;
@@ -118,8 +135,10 @@ public class BillReport{
 		List<BillData> result = new ArrayList<BillData>();
 
 		try {
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName),"unicode")); // 指定讀取文件的編碼格式，以免出現中文亂碼
-			//reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
+			if(charSet!=null)
+				reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName),charSet)); // 指定讀取文件的編碼格式，以免出現中文亂碼
+			else
+				reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
 
 			
 			
@@ -226,6 +245,8 @@ public class BillReport{
 		
 		switch(type){
 			case 1:
+			//20150703 add
+			case 11:
 			case 2:
 				templateName=sType2+"/template1/billreport.jrxml";
 				dataProcess1(result);
@@ -292,6 +313,8 @@ public class BillReport{
 
 		switch(type){
 			case 1:
+			//20150703 add
+			case 11:
 			case 2:
 				map = setReportParameter1(data,type);
 				fileName = data.getI().getAccountNum()+"_"+dateString+"_"+data.getI().getAccountName();
@@ -435,7 +458,7 @@ public class BillReport{
 		contactInfo="",
 		customerServiceNumber="";
 		
-		if(type==1){
+		if(type==1||type==11){
 			imageName="sim2travel.jpg";
 			contactTitle="How to contact us:";
 			contactInfo="Call +886-960-840-112"+"\n"

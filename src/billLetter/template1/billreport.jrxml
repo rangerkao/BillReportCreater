@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="609" pageHeight="794" columnWidth="569" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
 	<property name="ireport.zoom" value="1.331000000000024"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2928"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -128,7 +128,9 @@ For derail rate plan please visit:]]></text>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport_balance.jasper"]]></subreportExpression>
 			</subreport>
 			<image>
-				<reportElement x="36" y="14" width="150" height="50" uuid="b74e3325-2dc0-4e48-bdea-8a1aa109abd6"/>
+				<reportElement x="36" y="14" width="150" height="50" uuid="b74e3325-2dc0-4e48-bdea-8a1aa109abd6">
+					<printWhenExpression><![CDATA[!"11".equals($P{reportType})]]></printWhenExpression>
+				</reportElement>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+ $P{imageName}]]></imageExpression>
 			</image>
 			<textField>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
-	<property name="ireport.zoom" value="1.331000000000024"/>
+	<property name="ireport.zoom" value="2.1435888100000398"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1891"/>
+	<property name="ireport.y" value="1462"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -128,7 +128,9 @@ For derail rate plan please visit:]]></text>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport_balance.jasper"]]></subreportExpression>
 			</subreport>
 			<image>
-				<reportElement x="36" y="14" width="150" height="50" uuid="b74e3325-2dc0-4e48-bdea-8a1aa109abd6"/>
+				<reportElement x="36" y="14" width="150" height="50" uuid="b74e3325-2dc0-4e48-bdea-8a1aa109abd6">
+					<printWhenExpression><![CDATA[11!=$P{reportType}]]></printWhenExpression>
+				</reportElement>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+ $P{imageName}]]></imageExpression>
 			</image>
 			<textField>
@@ -221,7 +223,7 @@ For derail rate plan please visit:]]></text>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="9" y="52" width="108" height="15" isPrintWhenDetailOverflows="true" uuid="ba168b29-0b27-43cf-a778-8430deb99fbd">
+				<reportElement x="24" y="51" width="108" height="15" isPrintWhenDetailOverflows="true" uuid="ba168b29-0b27-43cf-a778-8430deb99fbd">
 					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}>=3]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -237,11 +239,13 @@ For derail rate plan please visit:]]></text>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="35" y="0" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="2e22dd4d-e2b3-4e38-ae3a-89d2a1bf6eb3"/>
+				<reportElement x="35" y="0" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="2e22dd4d-e2b3-4e38-ae3a-89d2a1bf6eb3">
+					<printWhenExpression><![CDATA[11!=$P{reportType}]]></printWhenExpression>
+				</reportElement>
 				<imageExpression><![CDATA[$P{SUBREPORT_DIR}+ $P{imageName}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="117" y="52" width="159" height="15" uuid="50d60811-ed76-425f-90d2-4c8bedc6c5ae">
+				<reportElement x="132" y="51" width="159" height="15" uuid="50d60811-ed76-425f-90d2-4c8bedc6c5ae">
 					<printWhenExpression><![CDATA[$V{PAGE_NUMBER}>=3]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -253,7 +257,7 @@ For derail rate plan please visit:]]></text>
 	</pageHeader>
 	<detail>
 		<band height="694" splitType="Stretch">
-			<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
+			<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 			<staticText>
 				<reportElement x="20" y="545" width="289" height="100" uuid="b504ee83-d048-48d9-a37b-3bbfdb77448f">
 					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
@@ -535,6 +539,9 @@ MMS Charges]]></text>
 				</subreportParameter>
 				<subreportParameter name="prePageCount">
 					<subreportParameterExpression><![CDATA[$V{PAGE_NUMBER}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportType">
+					<subreportParameterExpression><![CDATA[$P{reportType}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="Statement for">
 					<subreportParameterExpression><![CDATA[$P{Statement for}]]></subreportParameterExpression>

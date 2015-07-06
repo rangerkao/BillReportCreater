@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2__subreport" pageWidth="595" pageHeight="802" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0345e82c-69e8-4ce9-a996-9eec471a820c">
 	<property name="ireport.zoom" value="2.1435888100000224"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="298"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Billing Period" class="java.lang.String"/>
 	<parameter name="Currency" class="java.lang.String"/>
@@ -12,6 +12,7 @@
 	<parameter name="prePageCount" class="java.lang.Integer"/>
 	<parameter name="imageName" class="java.lang.String"/>
 	<parameter name="customerServiceNumber" class="java.lang.String"/>
+	<parameter name="reportType" class="java.lang.Integer"/>
 	<field name="serviceCode" class="java.lang.String"/>
 	<field name="voiceUsageCharges" class="java.util.List"/>
 	<field name="smsCharges" class="java.util.List"/>
@@ -65,7 +66,9 @@
 					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+$P{prePageCount}]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement x="37" y="0" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="82d18a80-abbd-4b24-85bc-6fd5176af9b7"/>
+					<reportElement x="37" y="0" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="82d18a80-abbd-4b24-85bc-6fd5176af9b7">
+						<printWhenExpression><![CDATA[11!=$P{reportType}]]></printWhenExpression>
+					</reportElement>
 					<imageExpression><![CDATA[$P{SUBREPORT_DIR}+ $P{imageName}]]></imageExpression>
 				</image>
 				<textField>
@@ -146,7 +149,9 @@
 					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+$P{prePageCount}]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement x="37" y="2" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="52c192bf-1e02-49fc-b82c-bda25bfac402"/>
+					<reportElement x="37" y="2" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="52c192bf-1e02-49fc-b82c-bda25bfac402">
+						<printWhenExpression><![CDATA[11!=$P{reportType}]]></printWhenExpression>
+					</reportElement>
 					<imageExpression><![CDATA[$P{SUBREPORT_DIR}+$P{imageName}]]></imageExpression>
 				</image>
 				<textField>
