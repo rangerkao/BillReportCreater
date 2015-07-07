@@ -40,7 +40,7 @@ import bill.bean.UsageDiscount;
 
 public class BillReport{
 	
-	public BillReport(){
+	public BillReport(){ 
 		/**
 		 * 1:S2T 
 		 * 11: 201507新需求，S2T不顯示圖案
