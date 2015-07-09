@@ -18,6 +18,7 @@ import java.util.Map;
 
 
 
+
 import javax.swing.JTextArea;
 
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
@@ -52,7 +53,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_with_Usage/S2T_201501_PDF_with_Usage.txt",11,1);
+		process(filePath+"/"+"New Bill/Source/iGlomo_201506_PDF_with_Usage_UTF8.txt",4,1,"utf-8");
 	}
 	JTextArea textPane=null;
 	
@@ -73,12 +74,14 @@ public class BillReport{
 		}
 		
 		Integer type2=1;
-		if(arg.length>5)
+		if(arg.length>=5)
 			type2=Integer.valueOf(arg[4]);
 		
 		String charSet=null;
-		if(arg.length>4)
+		if(arg.length>=4){
 			charSet=arg[3];
+			System.out.println("Set charSet "+charSet);
+		}
 		process(arg[0],Integer.valueOf(arg[2]),type2,charSet);
 	}
 	private static String FileName;
@@ -298,7 +301,7 @@ public class BillReport{
 		
 		String fileName="default";
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdf = null;
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMM");
 		
 		
@@ -307,6 +310,12 @@ public class BillReport{
 			ds = data.getI().getCycleBeginDate();
 		else
 			ds = data.getBS().get(0).getU1().getCycleBeginDate();
+		
+		if(type==4)
+			sdf = new SimpleDateFormat("yyyy/MM/dd");//iGlomo
+		else
+			sdf = new SimpleDateFormat("MM/dd/yyyy");
+		
 		
 		Date d = sdf.parse(ds);
 		dateString = sdf2.format(d);
