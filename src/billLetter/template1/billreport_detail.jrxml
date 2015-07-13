@@ -12,6 +12,7 @@
 	<parameter name="prePageCount" class="java.lang.Integer"/>
 	<parameter name="imageName" class="java.lang.String"/>
 	<parameter name="customerServiceNumber" class="java.lang.String"/>
+	<parameter name="reportType" class="java.lang.Integer"/>
 	<field name="serviceCode" class="java.lang.String"/>
 	<field name="voiceUsageCharges" class="java.util.List"/>
 	<field name="smsCharges" class="java.util.List"/>
@@ -65,7 +66,9 @@
 					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+$P{prePageCount}]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement x="37" y="0" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="82d18a80-abbd-4b24-85bc-6fd5176af9b7"/>
+					<reportElement x="37" y="0" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="82d18a80-abbd-4b24-85bc-6fd5176af9b7">
+						<printWhenExpression><![CDATA[$P{reportType}!=11]]></printWhenExpression>
+					</reportElement>
 					<imageExpression><![CDATA[$P{SUBREPORT_DIR}+ $P{imageName}]]></imageExpression>
 				</image>
 				<textField>
@@ -146,7 +149,9 @@
 					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+$P{prePageCount}]]></textFieldExpression>
 				</textField>
 				<image>
-					<reportElement x="37" y="2" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="52c192bf-1e02-49fc-b82c-bda25bfac402"/>
+					<reportElement x="37" y="2" width="150" height="50" isPrintWhenDetailOverflows="true" uuid="52c192bf-1e02-49fc-b82c-bda25bfac402">
+						<printWhenExpression><![CDATA[$P{reportType}!=11]]></printWhenExpression>
+					</reportElement>
 					<imageExpression><![CDATA[$P{SUBREPORT_DIR}+$P{imageName}]]></imageExpression>
 				</image>
 				<textField>

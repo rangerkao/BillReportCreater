@@ -53,7 +53,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"New Bill/Source/iGlomo_201506_PDF_with_Usage_UTF8.txt",4,1,"utf-8");
+		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_with_Usage/S2T_201501_PDF_with_Usage.txt",11,1,null);
 	}
 	JTextArea textPane=null;
 	

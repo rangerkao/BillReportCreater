@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
 	<property name="ireport.zoom" value="2.1435888100000398"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1462"/>
+	<property name="ireport.y" value="1353"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -64,8 +64,8 @@
 By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credit card.  I can change my credit card on file simply by dialing +886960840112 and notifying Sim2Travel of my request.]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="471" width="554" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
-					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
+				<reportElement x="17" y="471" width="554" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
+					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<graphicElement>
 					<pen lineStyle="Dotted"/>
@@ -93,8 +93,8 @@ By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credi
 				<textFieldExpression><![CDATA["Billing Period :  "+$P{Billing Period}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="3" y="485" width="550" height="213" uuid="29f44ebd-209c-45eb-88ca-e6ce312d0b99">
-					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
+				<reportElement x="20" y="485" width="550" height="213" uuid="29f44ebd-209c-45eb-88ca-e6ce312d0b99">
+					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isUnderline="false"/>
@@ -184,8 +184,8 @@ For derail rate plan please visit:]]></text>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="3" y="471" width="100" height="14" uuid="298b3936-e031-4d5c-82f1-5bd078b8dcfd">
-					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
+				<reportElement x="20" y="471" width="100" height="14" uuid="298b3936-e031-4d5c-82f1-5bd078b8dcfd">
+					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
@@ -193,8 +193,8 @@ For derail rate plan please visit:]]></text>
 				<text><![CDATA[Important Notice:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="681" width="256" height="20" uuid="5c89c3c8-0b1d-4b27-8fea-fba1dc662ad3">
-					<printWhenExpression><![CDATA[$P{reportType}==1]]></printWhenExpression>
+				<reportElement x="21" y="680" width="256" height="20" uuid="5c89c3c8-0b1d-4b27-8fea-fba1dc662ad3">
+					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" isUnderline="true"/>
