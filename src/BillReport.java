@@ -19,16 +19,36 @@ import java.util.Map;
 
 
 
+
+
+
+
+
+
+
+
+
+
 import javax.swing.JTextArea;
 
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.JasperReportsContext;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRPdfExporterParameter;
+import net.sf.jasperreports.export.PdfReportConfiguration;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.export.type.PdfVersionEnum;
 import bill.bean.BillData;
 import bill.bean.BillSubData;
 import bill.bean.Charge;
@@ -53,7 +73,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_with_Usage/S2T_201501_PDF_with_Usage.txt",11,1,null);
+		process(filePath+"/"+"New Bill/Source/S2T_201506_POST_without_Usage_UTF8/S2T_201506_POST_without_Usage_UTF8.txt",11,1,"utf8");
 	}
 	JTextArea textPane=null;
 	
@@ -344,15 +364,27 @@ public class BillReport{
 		
 		if(map!=null){
 			print("set parameter success!");
-			String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JREmptyDataSource());
+			/*String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JREmptyDataSource());
 			//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,null,new JREmptyDataSource());
 			//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JRBeanCollectionDataSource(data.getBS()));
-			print("create file success!"+fileName+".pdf");
-
-			JasperExportManager.exportReportToPdfFile(jrprintFile,exportPath+"/"+fileName+".pdf");
+			print("create file success!"+fileName+".pdf");	
+			JasperExportManager.exportReportToPdfFile(jrprintFile,exportPath+"/"+fileName+".PDF");*/
+			JasperPrint jp = JasperFillManager.fillReport(jasperFile, map, new JREmptyDataSource());
+			List<JasperPrint> jpl = new ArrayList<JasperPrint>();
+			jpl.add(jp);
+			
+			SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+			configuration.setPdfVersion(PdfVersionEnum.VERSION_1_5);
+			
+			JRPdfExporter exporter = new JRPdfExporter();
+			exporter.setExporterInput(SimpleExporterInput.getInstance(jpl));
+			exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(exportPath+"/"+fileName+".PDF"));
+			exporter.setConfiguration(configuration);
+			exporter.exportReport();
 		}else{
 			print("set parameter fail!");
 		}
+		
 	}
 	
 	private void dataProcess1(List<BillData> result){
