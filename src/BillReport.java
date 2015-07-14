@@ -73,7 +73,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"New Bill/Source/S2T_201506_POST_without_Usage_UTF8/S2T_201506_POST_without_Usage_UTF8.txt",11,1,"utf8");
+		process(filePath+"/"+"New Bill/Source/S2T_201506_POST_without_Usage_UTF8/S2T_201506_POST_without_Usage_UTF8.txt",1,1,"utf8");
 	}
 	JTextArea textPane=null;
 	
