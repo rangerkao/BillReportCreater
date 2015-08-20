@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2__subreport" pageWidth="595" pageHeight="802" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0345e82c-69e8-4ce9-a996-9eec471a820c">
 	<property name="ireport.zoom" value="2.1435888100000224"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="298"/>
+	<property name="ireport.y" value="297"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Billing Period" class="java.lang.String"/>
 	<parameter name="Currency" class="java.lang.String"/>
@@ -18,7 +18,7 @@
 	<field name="smsCharges" class="java.util.List"/>
 	<field name="gprsUsageCharges" class="java.util.List"/>
 	<field name="d" class="java.util.List"/>
-	<field name="totalCurrentCharge" class="java.lang.Double"/>
+	<field name="totalAmount" class="java.lang.String"/>
 	<field name="totalUsageCharge" class="java.lang.Double"/>
 	<field name="priceplan" class="java.lang.String"/>
 	<field name="mmsCharges" class="java.util.List"/>
@@ -228,6 +228,9 @@
 				<subreportParameter name="Statement for">
 					<subreportParameterExpression><![CDATA[$P{Statement for}]]></subreportParameterExpression>
 				</subreportParameter>
+				<subreportParameter name="totalAmount">
+					<subreportParameterExpression><![CDATA[Double.parseDouble($F{totalAmount})]]></subreportParameterExpression>
+				</subreportParameter>
 				<subreportParameter name="pageCount1">
 					<subreportParameterExpression><![CDATA[$V{pageCount1}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -236,9 +239,6 @@
 				</subreportParameter>
 				<subreportParameter name="Currency">
 					<subreportParameterExpression><![CDATA[$P{Currency}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="totalCurrentCharge">
-					<subreportParameterExpression><![CDATA[$F{totalCurrentCharge}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource()]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport_charge.jasper"]]></subreportExpression>

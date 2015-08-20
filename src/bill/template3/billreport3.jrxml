@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="40" bottomMargin="0" isTitleNewPage="true" uuid="ac2e0ac2-f70f-46fe-a5db-76ba23eb8e35">
 	<property name="ireport.zoom" value="1.4641000000000266"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2497"/>
+	<property name="ireport.x" value="15"/>
+	<property name="ireport.y" value="1364"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["C:\\Users\\ranger.kao\\Dropbox\\workspace\\DVRS\\src\\source\\bill\\template3\\"]]></defaultValueExpression>
 	</parameter>
@@ -22,9 +22,7 @@
 	<parameter name="D" class="java.util.List"/>
 	<parameter name="U1total" class="java.lang.String"/>
 	<parameter name="U2total" class="java.lang.String"/>
-	<parameter name="R" class="java.util.List"/>
 	<parameter name="BS" class="java.util.List"/>
-	<parameter name="R1" class="java.util.List"/>
 	<parameter name="PaymentMethod" class="java.lang.String"/>
 	<parameter name="InvoiceNo" class="java.lang.String"/>
 	<parameter name="NewTotalAmount" class="java.lang.String"/>
@@ -222,7 +220,7 @@
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<text><![CDATA[■ 撥打電話注意事項
-提醒您：直接三通卡撥打國際電話或發簡訊時，請以〈＋〉〈國碼〉〈電話號碼〉來做使用。
+提醒您：使用三通卡撥打國際電話或發簡訊時，請以〈＋〉〈國碼〉〈電話號碼〉來做使用。
 若無法直接以〈＋〉〈國碼〉〈電話號碼〉方式撥打國際電話，請改以**128*〈＋〉〈國碼〉〈電話號碼〉＃方式撥打。
 舉例出國撥打台灣：**128*+886960840112＃，再按發送鍵。]]></text>
 			</staticText>
@@ -248,14 +246,14 @@
 				<textFieldExpression><![CDATA["  "+$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="408" y="67" width="100" height="15" uuid="7465d835-2082-40f3-9809-a95d5af32091"/>
+				<reportElement x="408" y="67" width="122" height="15" uuid="7465d835-2082-40f3-9809-a95d5af32091"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{Billing Period}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="408" y="81" width="100" height="15" uuid="3ea2e393-01aa-42eb-bd90-97f81706e161"/>
+				<reportElement x="408" y="81" width="122" height="15" uuid="3ea2e393-01aa-42eb-bd90-97f81706e161"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
@@ -370,7 +368,7 @@
    上期帳單若已繳清款項而未及時銷帳者，本期帳單將顯示上期未付金額，請按本期新增費用之金額繳款即可。
    如有溢繳會自動合併於下期帳單計算。
 
-■ 若你需補印帳單或申請明細帳單，請致電客戶服務專線　02-25683288查詢。]]></text>
+■ 若您需補印帳單或申請明細帳單，請致電客戶服務專線　02-25683288查詢。]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="73" width="555" height="20" backcolor="#CCCCCC" uuid="eea94ea3-2a9c-42d3-aa05-6ae59acb8f2d"/>
@@ -418,20 +416,23 @@
 		<band height="802">
 			<subreport>
 				<reportElement x="0" y="0" width="555" height="100" uuid="3180f073-a4e2-4193-b353-fd680fcb9e51"/>
-				<subreportParameter name="PRE_PAGE_NUMBER">
-					<subreportParameterExpression><![CDATA[$V{PAGE_NUMBER}]]></subreportParameterExpression>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="D">
 					<subreportParameterExpression><![CDATA[$P{D}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="U1total">
-					<subreportParameterExpression><![CDATA[$P{U1total}]]></subreportParameterExpression>
+				<subreportParameter name="PRE_PAGE_NUMBER">
+					<subreportParameterExpression><![CDATA[$V{PAGE_NUMBER}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="priceplan">
 					<subreportParameterExpression><![CDATA[$P{Priceplan}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="R1">
-					<subreportParameterExpression><![CDATA[$P{R1}]]></subreportParameterExpression>
+				<subreportParameter name="U1total">
+					<subreportParameterExpression><![CDATA[$P{U1total}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TotalAmount">
+					<subreportParameterExpression><![CDATA[$P{TotalAmount}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="Billing Period">
 					<subreportParameterExpression><![CDATA[$P{Billing Period}]]></subreportParameterExpression>
@@ -439,20 +440,11 @@
 				<subreportParameter name="U2total">
 					<subreportParameterExpression><![CDATA[$P{U2total}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="CustomerName">
-					<subreportParameterExpression><![CDATA[$P{CustomerName}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="SUBREPORT_DIR">
-					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="R">
-					<subreportParameterExpression><![CDATA[$P{R}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="TotalAmount">
-					<subreportParameterExpression><![CDATA[$P{TotalAmount}]]></subreportParameterExpression>
-				</subreportParameter>
 				<subreportParameter name="Currency">
 					<subreportParameterExpression><![CDATA[$P{Currency}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CustomerName">
+					<subreportParameterExpression><![CDATA[$P{CustomerName}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{BS})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_detail.jasper"]]></subreportExpression>
@@ -523,7 +515,7 @@
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}+"  /"]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="722">
+		<band height="690">
 			<staticText>
 				<reportElement x="334" y="18" width="221" height="622" uuid="e90e8c75-0a60-48ca-b678-d959c665b2e8"/>
 				<textElement>

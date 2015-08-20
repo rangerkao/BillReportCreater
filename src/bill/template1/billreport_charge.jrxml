@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.2100000000000026"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="totalCurrentCharge" class="java.lang.Double"/>
+	<parameter name="totalAmount" class="java.lang.Double"/>
 	<parameter name="Currency" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Billing Period" class="java.lang.String"/>
@@ -27,7 +27,7 @@
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 					</textElement>
-					<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{totalCurrentCharge})]]></textFieldExpression>
+					<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format($P{totalAmount})]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="359" y="0" width="100" height="20" uuid="408965d6-87fd-4116-afde-aa9fa1ed4cbe"/>
@@ -71,7 +71,7 @@
 					<subreportParameterExpression><![CDATA[$P{Currency}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="totalCurrentCharge">
-					<subreportParameterExpression><![CDATA[$P{totalCurrentCharge}]]></subreportParameterExpression>
+					<subreportParameterExpression><![CDATA[$P{totalAmount}]]></subreportParameterExpression>
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{d})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport_charge_detail.jasper"]]></subreportExpression>

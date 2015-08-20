@@ -18,7 +18,7 @@ public class BillSubData {
 	
 	//c's total
 	private String totalAmount;
-	
+
 	private String u1total;
 	private String u2total;
 	
@@ -302,18 +302,19 @@ public class BillSubData {
 		return u1total;
 	}
 
-	public void setU1total(String U1total) {
-		u1total = U1total;
+	public void setU1total(String u1total) {
+		this.u1total = u1total;
 	}
 
 	public String getU2total() {
 		return u2total;
 	}
 
-	public void setU2total(String U2total) {
-		u2total = U2total;
+	public void setU2total(String u2total) {
+		this.u2total = u2total;
 	}
-	
-	
 
+	
+	
+	
 }

@@ -73,7 +73,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"New Bill/Source/S2T_201506_POST_without_Usage_UTF8/S2T_201506_POST_without_Usage_UTF8.txt",1,1,"utf8");
+		process(filePath+"/"+"New Bill/Source/S2T_201501_PDF_with_Usage/S2T_201501_PDF_with_Usage.txt",1,1,"utf8");
 	}
 	JTextArea textPane=null;
 	
@@ -110,6 +110,7 @@ public class BillReport{
 	String filePath="C:/Users/ranger.kao/Desktop";
 	String templatePath="G:/Dropbox/workspace/BillReportCreater/src/";
 	String exportPath="C:/Users/ranger.kao/Desktop/bill";
+	
 	public static void main(String[] args){
 		if(args.length<3)
 			new BillReport();
@@ -129,6 +130,7 @@ public class BillReport{
 	public void process(String fileName,int type,Integer type2){
 		process(fileName,type,type2,null);
 	}
+	
 	public void process(String fileName,int type,Integer type2,String charSet){
 		
 		String sType2="";
@@ -163,12 +165,18 @@ public class BillReport{
 			else
 				reader = new BufferedReader(new InputStreamReader(new FileInputStream(FileName))); // 指定讀取文件的編碼格式，以免出現中文亂碼
 
-			
-			
+
 			int count=0;
 			
-			BillData r = null;
+			
+			BillData bill = null;
+			//sub list
 			BillSubData bs=null;
+			
+			//tag now is U1 or U2
+			String Utag=null;
+			
+			
 			while ((str = reader.readLine()) != null) {
 				data=str.split("\t");
 				String s= data[0];
@@ -180,72 +188,99 @@ public class BillReport{
 					list.add(data[i]);
 				}
 
-				
-				if("I".equalsIgnoreCase(s)&& type!=3){
+				//I(J),C(D),U(R)
+				if(type==1||type==11||type==2){
+					if("I".equalsIgnoreCase(s)){
+						print("proccess "+(++count)+" file.");
+						bill = new BillData();
+						result.add(bill);
+						
+						bill.setI(new Invoice(data));
+					}else if(bill!=null){
+						if("J".equalsIgnoreCase(s)){
+							list.add(3, null);//OrderSequence null
+							bill.getJ().add(new InvoiceDetail(list));
+						}else if("C".equalsIgnoreCase(s)){
+							//ServiceCode,priceplan
+							bs = new BillSubData(data[2],data[10]);
+							bill.getBS().add(bs);
+							bs.setC(new Charge(list));
+						}else if("D".equalsIgnoreCase(s)){
+							list.add(3,null);//CategorySequence null
+							bs.getD().add(new ChargeDetail(list));
+						}else if("U".equalsIgnoreCase(s)){
+							bs.setU(new Usage(list));
+						}else if("R".equalsIgnoreCase(s)){
+							bs.getR().add(new UsageDetail(list));
+						}
+					}
+				}else if(type==3){//U1(R),U2(R),P
+					if("U1".equalsIgnoreCase(s)){
+						print("proccess "+(++count)+" file.");
+						bill = new BillData();
+						result.add(bill);
+						
+						bs = new BillSubData();
+						bill.getBS().add(bs);
 
-					/*if(count!=0){
-						result.add(r);	
-					}*/
-					count++;
-					r = new BillData();
-					print("proccess "+count+" file.");
-					
-					result.add(r);
+						bs.setU1(new Usage(list));
+						Utag="U1";
+						bs.setR1(new ArrayList<UsageDetail>());				
+						
+					}else if(bill!=null){
+						if("U2".equalsIgnoreCase(s)){
+							bs.setU2(new Usage(list));
+							Utag="U2";
+							bs.setR2(new ArrayList<UsageDetail>());
+						}else if("R".equalsIgnoreCase(s)){
+							if("U1".equalsIgnoreCase(Utag)){
+								bs.getR1().add(new UsageDetail(list));
+							}else if("U2".equalsIgnoreCase(Utag)){
+								bs.getR2().add(new UsageDetail(list));
+							}
+						}else if("P".equalsIgnoreCase(s)){
+							bs.setP(new UsageDiscount(list));
+						}
+					}
+				}else if(type==4){//I(J),C(D),U1(R),U2(R)
+					if("I".equalsIgnoreCase(s)){
+						print("proccess "+(++count)+" file.");
+						bill = new BillData();
+						result.add(bill);
+						
+						bill.setI(new Invoice(data));
+					}else if(bill!=null){
+						if("J".equalsIgnoreCase(s)){
+							list.add(3, null);//OrderSequence null
+							bill.getJ().add(new InvoiceDetail(list));
+						}else if("C".equalsIgnoreCase(s)){
+							//ServiceCode,priceplan
+							bs = new BillSubData(data[2],data[10]);
+							bill.getBS().add(bs);
+							bs.setC(new Charge(list));
+						}else if("D".equalsIgnoreCase(s)){
+							list.add(3,null);//CategorySequence null
+							bs.getD().add(new ChargeDetail(list));
+						}else if("U1".equalsIgnoreCase(s)){
+							bs.setU1(new Usage(list));
+							Utag="U1";
+							bs.setR1(new ArrayList<UsageDetail>());				
+							
+						}else if("U2".equalsIgnoreCase(s)){
+							bs.setU2(new Usage(list));
+							Utag="U2";
+							bs.setR2(new ArrayList<UsageDetail>());
 
-					r.setI(new Invoice(data));
-				}else if("J".equalsIgnoreCase(s)&& type!=3){
-					if(r==null) continue;
-					list.add(3, null);//OrderSequence null
-					r.getJ().add(new InvoiceDetail(list));
-				}else if("C".equalsIgnoreCase(s)&& type!=3){
-					if(r==null) continue;
-					//ServiceCode
-					bs = new BillSubData(data[2],data[10]);
-					r.getBS().add(bs);
-					bs.setC(new Charge(list));
-				}else if("D".equalsIgnoreCase(s)&& type!=3){
-					if(r==null) continue;
-					list.add(3,null);//CategorySequence null
-					bs.getD().add(new ChargeDetail(list));
-				}else if("U".equalsIgnoreCase(s)){
-					if(r==null) continue;
-					bs.setU(new Usage(list));
-				}else if("R".equalsIgnoreCase(s)){
-					if(r==null) continue;
-					bs.getR().add(new UsageDetail(list));
-				}else if("U1".equalsIgnoreCase(s)&& type==3){
-					count++;
-					r = new BillData();
-					bs = new BillSubData();
-					r.getBS().add(bs);
-					result.add(r);
-					print("proccess "+count+" file.");
-					bs.setU1(new Usage(list));
-				}else if("U2".equalsIgnoreCase(s)&& type==3){
-					bs.setU2(new Usage(list));
-					//before set R2,move R data to R1
-					bs.setR1(bs.getR());
-					//clear R's data
-					bs.setR(new ArrayList<UsageDetail>());
-				}else if("P".equalsIgnoreCase(s)){
-					bs.setR2(bs.getR());
-					bs.setP(new UsageDiscount(list));
-				}else if("U1".equalsIgnoreCase(s)&& type!=3){
-					bs.setU1(new Usage(list));
-				}else if("U2".equalsIgnoreCase(s)&& type!=3){
-					bs.setU2(new Usage(list));
-					//before set R2,move R data to R1
-					bs.setR1(bs.getR());
-					//clear R's data
-					bs.setR(new ArrayList<UsageDetail>());
+						}else if("R".equalsIgnoreCase(s)){
+							if("U1".equalsIgnoreCase(Utag)){
+								bs.getR1().add(new UsageDetail(list));
+							}else if("U2".equalsIgnoreCase(Utag)){
+								bs.getR2().add(new UsageDetail(list));
+							}
+						}
+					}
 				}
-			//print(str);
 			}
-/*			
-			if(r!=null){
-				result.add(r);	
-			}*/
-			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			print(e.getMessage());
@@ -272,18 +307,47 @@ public class BillReport{
 			case 11:
 			case 2:
 				templateName=sType2+"/template1/billreport.jrxml";
-				dataProcess1(result);
 				break;
 			case 3:
 				templateName=sType2+"/template2/billreport2.jrxml";
-				dataProcess1(result);
+				
 				break;
 			case 4:
 				templateName=sType2+"/template3/billreport3.jrxml";
-				dataProcess1(result);
 				break;
 			default:
 					
+		}
+		
+		for(BillData bd: result){
+			for(BillSubData bs : bd.getBS()){
+				Map<String,ArrayList<UsageDetail>> map = RProcess(bs.getR());
+				bs.setVoiceUsageCharges(map.get("voice"));
+				bs.setSmsCharges(map.get("sms"));
+				bs.setGprsUsageCharges(map.get("gprs"));
+				bs.setMmsCharges(map.get("mms"));
+				
+				Map<String,ArrayList<UsageDetail>> map1 = RProcess(bs.getR1());
+				bs.setR1voiceUsageCharges(map1.get("voice"));
+				bs.setR1smsCharges(map1.get("sms"));
+				bs.setR1gprsUsageCharges(map1.get("gprs"));
+				bs.setR1mmsCharges(map1.get("mms"));
+				
+				Map<String,ArrayList<UsageDetail>> map2 = RProcess(bs.getR2());
+				bs.setR2voiceUsageCharges(map2.get("voice"));
+				bs.setR2smsCharges(map2.get("sms"));
+				bs.setR2gprsUsageCharges(map2.get("gprs"));
+				bs.setR2mmsCharges(map2.get("mms"));
+				
+				if(bs.getU1()!=null)
+					bs.setU1total(bs.getU1().getTotalCharge());
+				if(bs.getU2()!=null)
+					bs.setU2total(bs.getU2().getTotalCharge());
+				if(bs.getC()!=null)
+					bs.setTotalAmount(bs.getC().getTotalAmount());
+				if(bs.getU()!=null)
+					bs.setTotalUsageCharge(Double.parseDouble(bs.getU().getTotalCharge()));
+			}
 		}
 		
 		try {
@@ -293,7 +357,7 @@ public class BillReport{
 			if(result!=null){
 				for(int i=0;i<result.size();i++){
 					try {
-						print("create "+i);
+						print("create "+(i+1));
 						if(templateName!=null)
 							creatPDF(result.get(i),type);
 					} catch (JRException e) {
@@ -353,9 +417,6 @@ public class BillReport{
 				fileName = data.getBS().get(0).getU1().getAccountNum()+"_"+dateString+"_"+data.getBS().get(0).getU1().getAccountName();
 				break;
 			case 4:
-				if(data.getBS().get(0).getR()!=null)
-					data.getBS().get(0).setR2(data.getBS().get(0).getR());
-				
 				map = setReportParameter3(data,type);
 				fileName = data.getI().getAccountNum()+"_"+dateString+"_"+data.getI().getAccountName();
 				break;
@@ -363,7 +424,6 @@ public class BillReport{
 		}
 		
 		if(map!=null){
-			print("set parameter success!");
 			/*String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JREmptyDataSource());
 			//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,null,new JREmptyDataSource());
 			//String jrprintFile=JasperFillManager.fillReportToFile(jasperFile,map,new JRBeanCollectionDataSource(data.getBS()));
@@ -381,110 +441,61 @@ public class BillReport{
 			exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(exportPath+"/"+fileName+".PDF"));
 			exporter.setConfiguration(configuration);
 			exporter.exportReport();
+			print("create file "+fileName+" success!");
 		}else{
 			print("set parameter fail!");
 		}
 		
 	}
 	
-	private void dataProcess1(List<BillData> result){
-		for(BillData r:result){
-			
-			for(BillSubData bs:r.getBS()){
-				Double totalCurrentCharge=0D;
-				for(ChargeDetail d:bs.getD()){
-					if(d.getAmount()!=null)//判對是否為浮點數型態
-						totalCurrentCharge=totalCurrentCharge+Double.parseDouble(d.getAmount());
-				}
-				bs.setTotalCurrentCharge(totalCurrentCharge);
-				
-				if(bs.getC()!=null)
-					bs.setTotalAmount(bs.getC().getTotalAmount());
-
-				Double tR1=0D;
-				Double tR2=0D;
-				Double tR3=0D;
-				Double tR4=0D;
-				
-				List<UsageDetail> voiceUsageCharges=new ArrayList<UsageDetail>();	
-				List<UsageDetail> smsCharges=new ArrayList<UsageDetail>();
-				List<UsageDetail> gprsUsageCharges=new ArrayList<UsageDetail>();
-				List<UsageDetail> mmsCharges=new ArrayList<UsageDetail>();
-				
-				List<UsageDetail> r1voiceUsageCharges=new ArrayList<UsageDetail>();	
-				List<UsageDetail> r1smsCharges=new ArrayList<UsageDetail>();
-				List<UsageDetail> r1gprsUsageCharges=new ArrayList<UsageDetail>();
-				List<UsageDetail> r1mmsCharges=new ArrayList<UsageDetail>();
-				
-				List<UsageDetail> r2voiceUsageCharges=new ArrayList<UsageDetail>();	
-				List<UsageDetail> r2smsCharges=new ArrayList<UsageDetail>();
-				List<UsageDetail> r2gprsUsageCharges=new ArrayList<UsageDetail>();
-				List<UsageDetail> r2mmsCharges=new ArrayList<UsageDetail>();
-
-				for(UsageDetail u : bs.getR()){
-					if("Voice Usage Charges".equalsIgnoreCase(u.getChargeItemName())){
-						voiceUsageCharges.add(u);	
-						tR1=Double.parseDouble(u.getSubTotalCharges());
-					}else if("SMS Charges".equalsIgnoreCase(u.getChargeItemName())){
-						smsCharges.add(u);
-						tR2=Double.parseDouble(u.getSubTotalCharges());
-					}else if("GPRS Usage Charges".equalsIgnoreCase(u.getChargeItemName())){
-						gprsUsageCharges.add(u);
-						tR3=Double.parseDouble(u.getSubTotalCharges());
-					}else if("MMS Charges".equalsIgnoreCase(u.getChargeItemName())){
-						mmsCharges.add(u);
-						tR4=Double.parseDouble(u.getSubTotalCharges());
-					}
-				}
-				bs.setVoiceUsageCharges(voiceUsageCharges);
-				bs.setSmsCharges(smsCharges);
-				bs.setGprsUsageCharges(gprsUsageCharges);
-				bs.setMmsCharges(mmsCharges);
-				bs.setTotalUsageCharge(tR1+tR2+tR3+tR4);
-
-				
-				for(UsageDetail u : bs.getR1()){
-					if("語音通話費".equalsIgnoreCase(u.getChargeItemName())||
-							"Voice Calling Charges".equalsIgnoreCase(u.getChargeItemName())||
-							"Voice Usage Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r1voiceUsageCharges.add(u);
-					}else if("簡訊服務費".equalsIgnoreCase(u.getChargeItemName())||
-							"SMS Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r1smsCharges.add(u);
-					}else if("GPRS Usage Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r1gprsUsageCharges.add(u);
-					}else if("MMS Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r1mmsCharges.add(u);
-					}
-				}
-				if(bs.getU1()!=null)
-					bs.setU1total(bs.getU1().getTotalCharge());
-				bs.setR1voiceUsageCharges(r1voiceUsageCharges);
-				bs.setR1smsCharges(r1smsCharges);
-				bs.setR1gprsUsageCharges(r1gprsUsageCharges);
-				bs.setR1mmsCharges(r1mmsCharges);
-				
-				for(UsageDetail u : bs.getR2()){
-					if("Voice Calling Charges".equalsIgnoreCase(u.getChargeItemName())||
-							"Voice Usage Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r2voiceUsageCharges.add(u);	
-					}else if("SMS Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r2smsCharges.add(u);
-					}else if("GPRS Usage Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r2gprsUsageCharges.add(u);
-					}else if("MMS Charges".equalsIgnoreCase(u.getChargeItemName())){
-						r2mmsCharges.add(u);
-					}
-				}
-				if(bs.getU2()!=null)
-					bs.setU2total(bs.getU2().getTotalCharge());
-				bs.setR2voiceUsageCharges(r2voiceUsageCharges);
-				bs.setR2smsCharges(r2smsCharges);
-				bs.setR2gprsUsageCharges(r2gprsUsageCharges);
-				bs.setR2mmsCharges(r2mmsCharges);
-				
-			}
+	public String checkRtype(String name){
+		String result = "";
+		if(	"語音通話費".equalsIgnoreCase(name)||
+			"Voice Calling Charges".equalsIgnoreCase(name)||
+			"Voice Usage Charges".equalsIgnoreCase(name)){
+			result = "voice";
+		}else 
+		if(	"SMS Charges".equalsIgnoreCase(name)||
+			"簡訊服務費".equalsIgnoreCase(name)){
+			result = "sms";
+		}else 
+		if(	"GPRS Usage Charges".equalsIgnoreCase(name)){
+			result = "gprs";
+		}else 
+		if(	"MMS Charges".equalsIgnoreCase(name)){
+			result = "mms";
 		}
+		return result;
+	}
+	
+	private Map<String,ArrayList<UsageDetail>> RProcess(List<UsageDetail> uList){
+
+				ArrayList<UsageDetail> voiceUsageCharges=new ArrayList<UsageDetail>();	
+				ArrayList<UsageDetail> smsCharges=new ArrayList<UsageDetail>();
+				ArrayList<UsageDetail> gprsUsageCharges=new ArrayList<UsageDetail>();
+				ArrayList<UsageDetail> mmsCharges=new ArrayList<UsageDetail>();
+			
+
+				for(UsageDetail u : uList){
+					String type = checkRtype(u.getChargeItemName());
+					if(	"voice".equalsIgnoreCase(type)){
+						voiceUsageCharges.add(u);	
+					}else if("sms".equalsIgnoreCase(type)){
+						smsCharges.add(u);
+					}else if("gprs".equalsIgnoreCase(type)){
+						gprsUsageCharges.add(u);
+					}else if("mms".equalsIgnoreCase(type)){
+						mmsCharges.add(u);
+					}
+				}
+				
+				Map<String,ArrayList<UsageDetail>> r = new HashMap<String,ArrayList<UsageDetail>>();
+				r.put("voice", voiceUsageCharges);
+				r.put("sms", smsCharges);
+				r.put("gprs", gprsUsageCharges);
+				r.put("mms", mmsCharges);
+
+		return r;
 	}
 	
 	private Map<String,Object> setReportParameter1(BillData data,int type){
@@ -620,8 +631,8 @@ public class BillReport{
 		map.put("Billing Period", data.getBS().get(0).getU1().getCycleBeginDate()+"~"+data.getBS().get(0).getU1().getCycleEndDate());
 		map.put("Currency", "NTD");
 		
-		map.put("U1total", data.getBS().get(0).getU1().getTotalCharge());
-		map.put("U2total", data.getBS().get(0).getU2().getTotalCharge());
+		map.put("U1total", data.getBS().get(0).getU1total());
+		map.put("U2total", data.getBS().get(0).getU2total());
 		
 		map.put("r1voiceUsageCharges",data.getBS().get(0).getR1voiceUsageCharges());
 		map.put("r1smsCharges",data.getBS().get(0).getR1smsCharges() );
@@ -710,12 +721,8 @@ public class BillReport{
 		map.put("D", data.getBS().get(0).getD());
 		map.put("TotalAmount", data.getBS().get(0).getC().getTotalAmount());
 
-		map.put("R1", data.getBS().get(0).getR1());
-		map.put("R", data.getBS().get(0).getR());
 		map.put("BS", data.getBS());
 
-
-		
 		return map;
 	}
 	

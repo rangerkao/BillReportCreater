@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3_usage" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4472859e-c4c9-4f44-9da4-f0f264a3c403">
-	<property name="ireport.zoom" value="1.4641000000000008"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.zoom" value="2.853116706110004"/>
+	<property name="ireport.x" value="694"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="data" class="java.util.List"/>
 	<parameter name="CategoryName" class="java.lang.String"/>
@@ -14,6 +14,10 @@
 	<parameter name="smsCharges" class="java.util.List"/>
 	<parameter name="gprsUsageCharges" class="java.util.List"/>
 	<parameter name="mmsCharges" class="java.util.List"/>
+	<parameter name="Billing Period" class="java.lang.String"/>
+	<parameter name="CustomerName" class="java.lang.String"/>
+	<parameter name="serviceCode" class="java.lang.String"/>
+	<parameter name="PRE_PAGE_NUMBER" class="java.lang.Integer"/>
 	<group name="default" footerPosition="StackAtBottom">
 		<groupFooter>
 			<band height="25">
@@ -44,6 +48,52 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
+	<pageHeader>
+		<band height="65">
+			<textField>
+				<reportElement positionType="Float" x="360" y="29" width="185" height="14" uuid="067ff38f-b339-471c-b69c-fbdb1c46a143"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["列帳期間："+$P{Billing Period}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="360" y="3" width="43" height="14" uuid="25fbfe58-1ddf-43e1-a421-c48ad4be16a9"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[用戶名稱：]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="403" y="3" width="142" height="14" uuid="63e74e22-e34d-463c-b2bd-af0379b3b859"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CustomerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="360" y="17" width="185" height="14" uuid="706a2284-229a-4d79-b283-af94bb7639f7"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["台灣門號："+$P{serviceCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="360" y="41" width="185" height="14" uuid="413652be-7076-474d-a6e1-3ad73fb1d795"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["計算幣別："+$P{Currency}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="23" width="211" height="14" uuid="abb4239c-81bf-4960-abbb-bc028872e03e"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[客服電話專線: 02-25683288]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
