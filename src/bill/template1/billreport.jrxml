@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
-	<property name="ireport.zoom" value="2.1435888100000398"/>
+	<property name="ireport.zoom" value="1.1000000000000205"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1353"/>
+	<property name="ireport.y" value="2056"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -27,6 +27,11 @@
 	<parameter name="customerServiceNumber" class="java.lang.String"/>
 	<parameter name="InvoiceNo" class="java.lang.String"/>
 	<parameter name="PaymentMethod" class="java.lang.String"/>
+	<parameter name="InportantN" class="java.lang.String"/>
+	<parameter name="GeneralInfo" class="java.lang.String"/>
+	<parameter name="GlossaryT" class="java.lang.String"/>
+	<parameter name="GlossaryE" class="java.lang.String"/>
+	<parameter name="PayInfo" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -40,14 +45,14 @@
 				<text><![CDATA[Page      of]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement stretchType="RelativeToBandHeight" x="352" y="124" width="130" height="14" uuid="789c037a-7766-48c9-a31b-ba29f8ff46e4"/>
+				<reportElement stretchType="RelativeToBandHeight" x="352" y="124" width="172" height="14" uuid="789c037a-7766-48c9-a31b-ba29f8ff46e4"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{Statement for}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement stretchType="RelativeToBandHeight" x="36" y="64" width="214" height="84" uuid="918250dd-dff1-4318-b379-b161c1a54602"/>
+				<reportElement stretchType="RelativeToBandHeight" x="36" y="64" width="211" height="189" uuid="918250dd-dff1-4318-b379-b161c1a54602"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="10" isBold="true"/>
 				</textElement>
@@ -64,7 +69,7 @@
 By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credit card.  I can change my credit card on file simply by dialing +886960840112 and notifying Sim2Travel of my request.]]></text>
 			</staticText>
 			<line>
-				<reportElement x="17" y="471" width="554" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
+				<reportElement x="-2" y="471" width="554" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
 					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<graphicElement>
@@ -72,41 +77,35 @@ By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credi
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="289" y="185" width="193" height="15" uuid="0292d5f3-6fee-4b42-83f7-fca7c7a2c6cf"/>
+				<reportElement x="289" y="185" width="235" height="15" uuid="0292d5f3-6fee-4b42-83f7-fca7c7a2c6cf"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Currency :  "+$P{Currency}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="289" y="153" width="193" height="15" uuid="2e3ad803-21da-43db-b0ef-9493c7648924"/>
+				<reportElement x="289" y="153" width="235" height="15" uuid="2e3ad803-21da-43db-b0ef-9493c7648924"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Account Number :  "+$P{Account Number}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="289" y="169" width="193" height="15" uuid="64ac9d95-1ef6-4c25-b589-dd8568ba09b4"/>
+				<reportElement x="289" y="169" width="235" height="15" uuid="64ac9d95-1ef6-4c25-b589-dd8568ba09b4"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Billing Period :  "+$P{Billing Period}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="20" y="485" width="550" height="213" uuid="29f44ebd-209c-45eb-88ca-e6ce312d0b99">
+			<textField>
+				<reportElement x="1" y="485" width="550" height="213" uuid="464770cb-3759-4f25-8ed3-adeb5f110d93">
 					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
-				<textElement>
+				<textElement markup="none">
 					<font fontName="Source Han Sans TC Normal" size="8" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[
-Dear Value Subscribers, Sim2Travel’s local-number advantage continues to provide you with enhanced voice quality at competitive local rates. We are alwaysstriving to provide you the best in worldwide communication. As your business grows, we know you demand the strongest tools to help you get localized wherever the opportunities take you. Currently, we have CMCC(China), CMCC HK(Hong Kong), FET(Taiwan) and CTM (Macau) in our Blue Ocean Alliance. In the coming months, Sim2Travel will be rolling-out many new and exciting partner networks, including more countries with local numbers and mobile features!
-
-21 Selected Networks around the World!
-Besides our partner networks, Sim2Travel selected 21 networks in other 21 different countries to provide very competitive roaming price for you. These selected networks include: AT&T in US, Globe Telecom in Philippines, Vodafone in Australia, Vodafone D2 in Germany, T-Mobile in UK, Bouygues Telecom in France, Vodafone Omnitel in Italy, Telefonica Moviles in Spain, DoCoMo 3G in Japan, Starhub in Singapore, Vodafone in Netherlands, MTS in Russia, GPC Vinaphone in Vietnam, TRUE Move in Thailand, Hutchison in Indonesia, DiGi Telecom in Malaysia, Mobily in Saudi Arabia, SKT 3G in South Korea, MTN in South Africa, T-Mobile in Czech, and Tele2 in Sweden. Sim2Travel suggests you to select these networks when you travel to these countries listed above, to enjoy the best voice quality and low roaming rate at the same time!
-
-For derail rate plan please visit:]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{InportantN}]]></textFieldExpression>
+			</textField>
 			<subreport>
 				<reportElement x="289" y="205" width="264" height="48" uuid="64c16bf3-53aa-4c1a-a3e0-c867d80393a8"/>
 				<subreportParameter name="Payment Received">
@@ -155,26 +154,26 @@ For derail rate plan please visit:]]></text>
 				<text><![CDATA[Statement for : ]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="327" y="110" width="13" height="14" uuid="34c9f30f-f035-4d30-a3c4-8af0644935b5"/>
-				<textElement textAlignment="Center">
+				<reportElement x="332" y="110" width="36" height="14" uuid="34c9f30f-f035-4d30-a3c4-8af0644935b5"/>
+				<textElement textAlignment="Left">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="352" y="138" width="130" height="1" uuid="8887d080-bd88-43bb-8333-803726339cea"/>
+				<reportElement x="352" y="138" width="172" height="1" uuid="8887d080-bd88-43bb-8333-803726339cea"/>
 			</line>
 			<line>
-				<reportElement x="352" y="152" width="130" height="1" uuid="fae1819c-794a-43f7-ad53-75ccef071fe2"/>
+				<reportElement x="352" y="152" width="172" height="1" uuid="fae1819c-794a-43f7-ad53-75ccef071fe2"/>
 			</line>
 			<line>
-				<reportElement x="363" y="168" width="119" height="1" uuid="9eaeef82-04fc-4799-af5c-f2446cac9ceb"/>
+				<reportElement x="363" y="168" width="161" height="1" uuid="9eaeef82-04fc-4799-af5c-f2446cac9ceb"/>
 			</line>
 			<line>
-				<reportElement x="349" y="184" width="133" height="1" uuid="c022e5aa-26c0-46aa-a2de-43fad21728ef"/>
+				<reportElement x="349" y="184" width="175" height="1" uuid="c022e5aa-26c0-46aa-a2de-43fad21728ef"/>
 			</line>
 			<line>
-				<reportElement x="332" y="200" width="150" height="1" uuid="14f5ac04-0db8-44d6-be63-b00d68e66804"/>
+				<reportElement x="332" y="200" width="192" height="1" uuid="14f5ac04-0db8-44d6-be63-b00d68e66804"/>
 			</line>
 			<textField>
 				<reportElement x="308" y="110" width="13" height="14" uuid="ab741fcd-b6e2-4459-8144-11cfaee09764"/>
@@ -184,7 +183,7 @@ For derail rate plan please visit:]]></text>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="20" y="471" width="100" height="14" uuid="298b3936-e031-4d5c-82f1-5bd078b8dcfd">
+				<reportElement x="1" y="471" width="100" height="14" uuid="298b3936-e031-4d5c-82f1-5bd078b8dcfd">
 					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<textElement>
@@ -193,13 +192,22 @@ For derail rate plan please visit:]]></text>
 				<text><![CDATA[Important Notice:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="21" y="680" width="256" height="20" uuid="5c89c3c8-0b1d-4b27-8fea-fba1dc662ad3">
+				<reportElement x="2" y="680" width="256" height="20" uuid="5c89c3c8-0b1d-4b27-8fea-fba1dc662ad3">
 					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[http://www.sim2travel.com/tariff/rateplan.asp	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="663" width="267" height="20" uuid="1bc9204b-9d95-4958-b6c7-26e12b42335d">
+					<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[For derail rate plan please visit:]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -216,8 +224,8 @@ For derail rate plan please visit:]]></text>
 ]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
-				<reportElement x="412" y="8" width="20" height="15" uuid="055487d0-56cb-418d-864f-f840e4602f30"/>
-				<textElement textAlignment="Center">
+				<reportElement x="417" y="8" width="57" height="15" uuid="055487d0-56cb-418d-864f-f840e4602f30"/>
+				<textElement textAlignment="Left">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
@@ -257,7 +265,6 @@ For derail rate plan please visit:]]></text>
 	</pageHeader>
 	<detail>
 		<band height="694" splitType="Stretch">
-			<printWhenExpression><![CDATA[$P{reportType}==1||$P{reportType}==11]]></printWhenExpression>
 			<staticText>
 				<reportElement x="20" y="545" width="289" height="100" uuid="b504ee83-d048-48d9-a37b-3bbfdb77448f">
 					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
@@ -279,57 +286,19 @@ Bill Number: ]]></text>
 				</textElement>
 				<text><![CDATA[General Information]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="19" y="15" width="517" height="447" uuid="cb768609-d74f-449b-b925-b00cfbbb4d7a"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[
-1. All charges in this bill are in Hong Kong Dollars (HKD).
-
-2. "Monthly Service Charges" may be billed in advance or arrears depending on selected services.
-
-3. Usage charges are billed in arrears. Certain usage may appear more than one month in arrears.
-
-4. Calls to our Customer Service Centers may be monitored to ensure high quality service to our customers.
-
-5. Questions About Your Bill or Service: If you have any questions about your bill, or concerns about your service,
-     please contact our Customer Care representatives at:+886-960-840-112 or you may write to Customer Care at:
-     P.O. Box 81-875 Taipei, Taipei City 10599, Taiwan R.O.C.
-
-6. For more information, please contact our 24-hour customer service representatives:
-    •Taiwan: +886960840112
-    •Hong Kong: +85266400112
-    •China: +8613910480112
-    •You can also reach us via your Sim2Travel phone: simply dial *123# or access the "Sim2Travel" menu option from your Sim2Travel handset and press the "Service access" option followed by the "Customer service" option.
-    •Visit our website http://www.sim2travel.com
-
-
-
-With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will enjoy:
-•Maintaining in one SIM card, local numbers in China, Hong Kong and Taiwan which you can be reached at any time, even when traveling outsid of our partner networks.
-•Free Fwd to S2T, allowing you to forward all calls from your home mobile or landline numbers to your Sim2Travel local numbers, so you are always in touch with your home friends, family members and business associates, even when traveling abroad.
-•Free Fwd to Home, allowing all of your Sim2Travel locall(Blue Ocean Alliance &rMVNO) numbers to remain active, even when you are back in your home country, so you never miss a call from your friends, family members and business associates from abroad.
-•Up to 70% off traditional roaming rates.
-•A centralized voice mailbox for all of your Sim2Travel local numbers AND your diverted home mobile number calls.
-•Sending and receiving of SMS in the same manner as traditional GSM operators.
-
-
-
-
-
-
-
-
-
-]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="20" y="476" width="516" height="57" uuid="b5e55232-77e9-49a4-b137-e6f3de3cbedf"/>
-				<textElement>
+				<reportElement x="19" y="15" width="517" height="447" uuid="0ae94e02-0437-471b-946a-b872c1de3806"/>
+				<textElement verticalAlignment="Top" markup="none">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["2".equals($P{PaymentMethod}) ? "Sim2Travel (Blue Ocean Alliance & rMVNO) accepts payment by VISA or MasterCard only. Each Sim2Travel bill will be charged to the credit card that you have provided.":"Sim2Travel (Blue Ocean Alliance & rMVNO) accepts payment via bank wire transfer. The total amount due must be paid in Hong Kong Dollars (HKD) via bank wire transfer. before / on the 25 of the current month. Payment MUST include the full name and bill number. Transfer should be made directly to our billing partner Sim2Travel Inc."]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{GeneralInfo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="476" width="516" height="57" uuid="989825ca-5963-439d-959d-1db613fe4c80"/>
+				<textElement markup="none">
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PayInfo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="70" y="606" width="199" height="20" uuid="e6f4a0c8-d3de-49a6-b373-69f40090ace0">
@@ -347,182 +316,41 @@ With the Sim2Travel (Blue Ocean Alliance & rMVNO) promotional package, you will 
 				</textElement>
 				<text><![CDATA[How to pay:]]></text>
 			</staticText>
-		</band>
-		<band height="694">
-			<printWhenExpression><![CDATA[$P{reportType}==2]]></printWhenExpression>
-			<staticText>
-				<reportElement x="18" y="545" width="255" height="100" uuid="51daf1b1-a990-42ca-ad03-b72f8a62f0fa">
-					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
+			<textField>
+				<reportElement x="29" y="160" width="164" height="14" uuid="cc3711d9-02e1-4ddf-88af-e8793f047521">
+					<printWhenExpression><![CDATA[$P{reportType}==2]]></printWhenExpression>
 				</reportElement>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Beneficiary: Sim2travel Inc.
-A/C No.: 328-24-21800-9
-Bank Name: Shanghai Commercial Bank Ltd.
-Swift Code: SCBKHKHH
-Bank Address: 12 Queen's Road Central, Hong Kong
-Bill Number: ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="20" y="0" width="517" height="15" backcolor="#CCCCCC" uuid="323bf595-69f8-4d14-babf-fd407fac0465"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[General Information]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="19" y="15" width="517" height="245" uuid="843ac0ed-f051-4ac8-a3a7-7c1f869b7502"/>
-				<textElement verticalAlignment="Top">
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[
-1. All charges in this bill are in Hong Kong Dollars (HKD).
-
-2. "Monthly Service Charges" may be billed in advance or arrears depending on selected services.
-
-3. Usage charges are billed in arrears. Certain usage may appear more than one month in arrears.
-
-4. Calls to our Customer Service Centers may be monitored to ensure high quality service to our customers.
-
-5. Questions About Your Bill or Service: If you have any questions about your bill, or concerns about your service,
-    please call our customer service hotlines or email us.
-
-6.
-
-
-]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="67" y="606" width="165" height="20" uuid="003642ef-3fbf-4d0a-9f66-e8cca508f277">
-					<printWhenExpression><![CDATA[!"2".equals($P{PaymentMethod})]]></printWhenExpression>
-				</reportElement>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{InvoiceNo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="494" width="518" height="49" uuid="77a557c8-32cd-460c-b755-ca4e94f3a232"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA["2".equals($P{PaymentMethod}) ? "HKNet accepts payment by VISA or MasterCard only. Each Sim2Travel bill will be charged to the credit card that you have provided.":"HKNet accepts payment via bank wire transfer. The total amount due must be paid in Hong Kong Dollars (HKD) via bank wire transfer. before / on the 25 of the current month. Payment MUST include the full name and bill number. Transfer should be made directly to our billing partner Sim2Travel Inc."]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="19" y="480" width="121" height="14" uuid="0560fda2-9041-45b8-8b1a-bc60a6c4b70d"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
-				</textElement>
-				<text><![CDATA[How to pay:]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true">
-				<reportElement stretchType="RelativeToBandHeight" x="29" y="174" width="135" height="89" uuid="c2c66835-824d-4ec0-bac8-40f11c657f29"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{contactInfo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="29" y="160" width="164" height="14" uuid="2811413b-7006-4986-aac8-ab2e37c1cb3f"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{contactTitle}]]></textFieldExpression>
 			</textField>
-		</band>
-		<band height="694">
-			<printWhenExpression><![CDATA[$P{BS}!=null && $P{BS}.size()>0]]></printWhenExpression>
-			<staticText>
-				<reportElement x="29" y="15" width="100" height="448" uuid="cb0c5870-103a-4ca6-a7ac-8b2cbdd7d093"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
-				</textElement>
-				<text><![CDATA[
-Called Destination
-Caller Destination
-Call Duration
-CHNCT
-CHNOT
-FTH
-FTHA
-FTHD
-HKGPP
-Incoming
-IN_P
-IN_NP
-INA_P
-INA_NP
-IND_P
-IND_NP
-LA_P
-LA_NP
-LAA_P
-LAA_NP
-LAD_P
-LAD_NP
-Number calling/Called
-Outgoing
-SMS
-SMSA
-SMSD
-Total Charge
-UR
-URD
-VMC_P
-VMC_NP
-VMCA_P
-VMCA_NP
-VMCD_P
-VMCD_NP
-GPRS
-MMS]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="186" y="15" width="339" height="448" uuid="02fe5980-1722-4e38-9e3f-0ffe87dc1e76"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="29" y="174" width="135" height="89" uuid="d49be937-6c7c-437f-9f90-1d6cdba9e5d6">
+					<printWhenExpression><![CDATA[$P{reportType}==2]]></printWhenExpression>
+				</reportElement>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
-				<text><![CDATA[
-Destination of the caller
-Location of the caller
-Duration of the call
-China (Shanghai , Beijing, Gongdong)
-China (Other Providence)
-Fwd To Home Charges
-Fwd To Home Charges Adjustment
-Fwd To Home Charges Discount
-Hong Kong Peoples telecom
-Reciving an incoming call
-International Call Charges_Partner Network
-International Call Charges_Non-Partner Network
-International Call Charges Adjustment _Partner Network
-International Call Charges Adjustment_Non-Partner Network
-International Call Charges Discount_Partner Network
-International Call Charges Discount _Non-Partner Network
-Local Airtime Charges_Partner Network
-Local Airtime Charges_Non-Partner Network
-Local Airtime Charges Adjustment_Partner Network
-Local Airtime Charges Adjustment_Non-Partner Network
-Local Airtime Charges Discount_Partner Network
-Local Airtime Charges Discount_Non-Partner Network
-Number calling/Called
-Making an outgoing call
-SMS Charges
-SMS Charges Adjustment
-SMS Charges Discount
-Total Charge
-Usage Redeemable
-Usage Redeemable Adjustment
-Voice Mail Charges_Partner Network
-Voice Mail Charges_Non-Partner Network
-Voice Mail Charges Adjustment_Partner Network
-Voice Mail Charges Adjustment_Non-Partner Network
-Voice Mail Charges Discount_Partner Network
-Voice Mail Charges Discount_Non-Partner Network
-GPRS Internet Connection Usage Charge
-MMS Charges]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{contactInfo}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="694">
+			<printWhenExpression><![CDATA[$P{BS}!=null && $P{BS}.size()>0]]></printWhenExpression>
+			<textField>
+				<reportElement x="29" y="15" width="100" height="448" uuid="a06e47fd-16be-4c7d-a85c-1dbba68b0299"/>
+				<textElement markup="none">
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{GlossaryT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="15" width="339" height="448" uuid="064a17ef-a9ff-4457-9b87-655874c25bfb"/>
+				<textElement markup="none">
+					<font fontName="Source Han Sans TC Normal" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{GlossaryE}]]></textFieldExpression>
+			</textField>
 			<staticText>
 				<reportElement mode="Opaque" x="20" y="0" width="536" height="15" backcolor="#CCCCCC" uuid="75a0c331-3248-4f3e-9bdf-7019e1f32c35"/>
 				<textElement>

@@ -20,13 +20,13 @@
 		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
 		<groupFooter>
 			<band height="25">
-				<textField>
-					<reportElement mode="Opaque" x="0" y="0" width="555" height="25" backcolor="#CCCCCC" uuid="46d12d90-908b-4901-b36a-6f247e537c58"/>
-					<textElement verticalAlignment="Middle">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="25" backcolor="#CCCCCC" uuid="624ce1fe-b728-49e4-ac9a-6b6f0a3a1b2c"/>
+					<textElement verticalAlignment="Middle" markup="none">
 						<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 					</textElement>
-					<textFieldExpression><![CDATA["    "+$P{totalName}]]></textFieldExpression>
-				</textField>
+					<text><![CDATA[     全球卡境外通信費合計]]></text>
+				</staticText>
 				<textField>
 					<reportElement x="447" y="0" width="83" height="25" uuid="12057952-af82-4404-93e5-6ffa81066f62"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -49,13 +49,13 @@
 	</background>
 	<detail>
 		<band height="14">
-			<textField>
-				<reportElement x="0" y="0" width="216" height="14" uuid="228bfbc8-f771-471d-a354-a35ddbc89b4d"/>
-				<textElement>
+			<staticText>
+				<reportElement x="0" y="0" width="216" height="14" uuid="94727039-55ae-49f9-b8c7-65e9108cf8c6"/>
+				<textElement markup="none">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfEncoding="Cp1252"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{pageName}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[全球卡境外通信費(Roaming Charges)]]></text>
+			</staticText>
 		</band>
 		<band height="50">
 			<printWhenExpression><![CDATA[$P{smsCharges}!=null && $P{smsCharges}.size()>0]]></printWhenExpression>
