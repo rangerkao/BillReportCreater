@@ -15,6 +15,5 @@
 	<classpathentry kind="lib" path="G:/MegaSync/download/jar/jasperreport/jasperreports-fonts-6.0.0.jar"/>
 	<classpathentry kind="lib" path="G:/MegaSync/download/jar/jasperreport/jasperreports-functions-6.0.0.jar"/>
 	<classpathentry kind="lib" path="G:/MegaSync/download/jar/jasperreport/jasperreports-javaflow-6.0.0.jar"/>
-	<classpathentry kind="lib" path="G:/MegaSync/download/joda-time-2.0.jar/joda-time-2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
