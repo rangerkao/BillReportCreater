@@ -4,20 +4,21 @@ import java.util.List;
 
 public class UsageDiscount {
 
-	String recordFlag;				//¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	String accountNum;				//±b¤á½s¸¹(±b³æÁä­È)
-	String serviceCode;				//¹q¸Ü¸¹½X
-	String customerName;			//«È¤á¦WºÙ(°ò©ó¹q¸Ü¸¹½X)
-	String accountName;				//±b¸¹¦WºÙ
-	String cycleBeginDate;			//±b´Á¶}©l®É¶¡
-	String cycleEndDate;			//±b´Áµ²§ô®É¶¡
-	String totalDiscount;			//³q«H¶OÀu´f
-	String chnctDiscountTime;		//­»´ä¤¤°ê±µÅ¥¥xÆWÂà±µ¨Ó¹q³æ¦ì®É¶¡
-	String chnctDiscountAmount;		//­»´ä¤¤°ê±µÅ¥¥xÆWÂà±µ¨Ó¹qÀu´fª÷ÃB
-	String chnotDiscountTime;		//¤¤°ê(CHNOT)±µÅ¥¥xÆWÂà±µ¨Ó¹q³æ¦ì®É¶¡	
-	String chnotDiscountAmount;		//¤¤°ê(CHNOT)±µÅ¥¥xÆWÂà±µ¨Ó¹qÀu´fª÷ÃB
-	String macDiscountTime;			//¿Dªù±µÅ¥¥xÆWÂà±µ¨Ó¹q³æ¦ì®É¶¡
-	String macDiscountAmount;		//¿Dªù±µÅ¥¥xÆWÂà±µ¨Ó¹qÀu´fª÷ÃB
+	String recordFlag;				//è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	String accountNum;				//å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	String serviceCode;				//é›»è©±è™Ÿç¢¼
+	String customerName;			//å®¢æˆ¶åç¨±(åŸºæ–¼é›»è©±è™Ÿç¢¼)
+	String accountName;				//å¸³è™Ÿåç¨±
+	String cycleBeginDate;			//å¸³æœŸé–‹å§‹æ™‚é–“
+	String cycleEndDate;			//å¸³æœŸçµæŸæ™‚é–“
+	String totalDiscount;			//é€šä¿¡è²»å„ªæƒ 
+	String chnctDiscountTime;		//é¦™æ¸¯ä¸­åœ‹æ¥è½å°ç£è½‰æ¥ä¾†é›»å–®ä½æ™‚é–“
+	String chnctDiscountAmount;		//é¦™æ¸¯ä¸­åœ‹æ¥è½å°ç£è½‰æ¥ä¾†é›»å„ªæƒ é‡‘é¡
+	String chnotDiscountTime;		//ä¸­åœ‹(CHNOT)æ¥è½å°ç£è½‰æ¥ä¾†é›»å–®ä½æ™‚é–“	
+	String chnotDiscountAmount;		//ä¸­åœ‹(CHNOT)æ¥è½å°ç£è½‰æ¥ä¾†é›»å„ªæƒ é‡‘é¡
+	String macDiscountTime;			//æ¾³é–€æ¥è½å°ç£è½‰æ¥ä¾†é›»å–®ä½æ™‚é–“
+	String macDiscountAmount;		//æ¾³é–€æ¥è½å°ç£è½‰æ¥ä¾†é›»å„ªæƒ é‡‘é¡
+	
 	
 	String data;
 	

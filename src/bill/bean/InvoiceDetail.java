@@ -4,14 +4,14 @@ import java.util.List;
 
 public class InvoiceDetail {
 	
-	private String recordFlag; //¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	private String accountNum; //±b¤á½s¸¹(±b³æÁä­È)
-	private String serviceCode; //¹q¸Ü¸¹½X
-	private String orderSequence; //Åã¥Ü±Æ¦C¶¶§Ç
-	private String chargeItemName; //¶O¥Î¶µ¦W
-	private String amount; //¶O¥Î¶µª÷ÃB
+	private String recordFlag; //è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	private String accountNum; //å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	private String serviceCode; //é›»è©±è™Ÿç¢¼
+	private String orderSequence; //é¡¯ç¤ºæ’åˆ—é †åº
+	private String chargeItemName; //è²»ç”¨é …å
+	private String amount; //è²»ç”¨é …é‡‘é¡
 	
-	private String Data; //Bean ¤º®e¸ê®Æ
+	private String Data; //Bean å…§å®¹è³‡æ–™
 	
 	public InvoiceDetail(){
 		

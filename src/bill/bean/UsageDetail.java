@@ -4,33 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsageDetail {
-	private String recordFlag;//¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	private String accountNum;//±b¤á½s¸¹(±b³æÁä­È)
-	private String serviceCode;//¹q¸Ü¸¹½X
-	private String typeSequence;//¸Ô³æÃş«¬Åã¥Ü¶¶§Ç
-	private String usageType;//¸Ô³æÃş«¬
-	private String chargeItemName;//¶O¥Î¶µ¦WºÙ
-	private String subTotalDuration;//¸Ô³æÃş«¬®É¶¡¤p­p
-	private String subTotalCharges;//¸Ô³æÃş«¬ª÷ÃB¤p­p
-	private String subTotalMessages;//¸Ô³æÃş«¬¦¸¼Æ¤p­p
-	private String caller;//¥D¥s¸¹½X
-	private String callee;//³Q¥s¸¹½X
-	private String callerDestination;//¥D¥s©Ò¦b¦a
-	private String calleeDestination;//³Q¥s©Ò¦b¦a
-	private String startDate;//³q¸Ü°_©l¤é´Á
-	private String startTime;//³q¸Ü°_©l®É¶¡
-	private String callType;//©I¥s¤è¦V
-	private String duration;//³q¸Ü®Éªø
-	private String charge;//¶O¥Î
-	private String eventCount;//¦¸¼Æ
-	private String chargeItemAbbName;//¶O¥Î¶µÂ²½X
-	//«İ½T»{¡A¤å¥ó¨S¦³©w¸qªºÄæ¦ì
-	private String endDate;//µ²§ô¤é´Á
-	private String endTime;//µ²§ô®É¶¡
-	private String packages;//¨Ï¥Î«Ê¥]¶q
-	private String subTotalPackages;//¸Ô³æÃş«¬¦¸¼Æ¤p­p
+	private String recordFlag;//è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	private String accountNum;//å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	private String serviceCode;//é›»è©±è™Ÿç¢¼
+	private String typeSequence;//è©³å–®é¡å‹é¡¯ç¤ºé †åº
+	private String usageType;//è©³å–®é¡å‹
+	private String chargeItemName;//è²»ç”¨é …åç¨±
+	private String subTotalDuration;//è©³å–®é¡å‹æ™‚é–“å°è¨ˆ
+	private String subTotalCharges;//è©³å–®é¡å‹é‡‘é¡å°è¨ˆ
+	private String subTotalMessages;//è©³å–®é¡å‹æ¬¡æ•¸å°è¨ˆ
+	private String caller;//ä¸»å«è™Ÿç¢¼
+	private String callee;//è¢«å«è™Ÿç¢¼
+	private String callerDestination;//ä¸»å«æ‰€åœ¨åœ°
+	private String calleeDestination;//è¢«å«æ‰€åœ¨åœ°
+	private String startDate;//é€šè©±èµ·å§‹æ—¥æœŸ
+	private String startTime;//é€šè©±èµ·å§‹æ™‚é–“
+	private String callType;//å‘¼å«æ–¹å‘
+	private String duration;//é€šè©±æ™‚é•·
+	private String charge;//è²»ç”¨
+	private String eventCount;//æ¬¡æ•¸
+	private String chargeItemAbbName;//è²»ç”¨é …ç°¡ç¢¼
+	//å¾…ç¢ºèªï¼Œæ–‡ä»¶æ²’æœ‰å®šç¾©çš„æ¬„ä½
+	private String endDate;//çµæŸæ—¥æœŸ
+	private String endTime;//çµæŸæ™‚é–“
+	private String packages;//ä½¿ç”¨å°åŒ…é‡
+	private String subTotalPackages;//è©³å–®é¡å‹æ¬¡æ•¸å°è¨ˆ
 	
-	private String Data; //Bean ¤º®e¸ê®Æ
+	private String Data; //Bean å…§å®¹è³‡æ–™
 
 	public UsageDetail(){
 	}

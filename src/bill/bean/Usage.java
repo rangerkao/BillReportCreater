@@ -3,17 +3,17 @@ package bill.bean;
 import java.util.List;
 
 public class Usage {
-	private String RecordFlag;//¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	private String AccountNum;//±b¤á½s¸¹(±b³æÁä­È)
-	private String ServiceCode;//¹q¸Ü¸¹½X
-	private String CustomerName;//«È¤á¦WºÙ(°ò©ó¹q¸Ü¸¹½X)
-	private String AccountName;//±b¸¹¦WºÙ
-	private String CycleBeginDate;//±b´Á¶}©l®É¶¡
-	private String CycleEndDate;//±b´Áµ²§ô®É¶¡
-	private String TotalCharge;//Á`¶O¥Î
-	private String TotalRecordCount;//Á`¸Ü³æ¸ê®Æµ§¼Æ
+	private String RecordFlag;//è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	private String AccountNum;//å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	private String ServiceCode;//é›»è©±è™Ÿç¢¼
+	private String CustomerName;//å®¢æˆ¶åç¨±(åŸºæ–¼é›»è©±è™Ÿç¢¼)
+	private String AccountName;//å¸³è™Ÿåç¨±
+	private String CycleBeginDate;//å¸³æœŸé–‹å§‹æ™‚é–“
+	private String CycleEndDate;//å¸³æœŸçµæŸæ™‚é–“
+	private String TotalCharge;//ç¸½è²»ç”¨
+	private String TotalRecordCount;//ç¸½è©±å–®è³‡æ–™ç­†æ•¸
 	
-	private String Data; //Bean ¤º®e¸ê®Æ
+	private String Data; //Bean å…§å®¹è³‡æ–™
 
 	public Usage(){
 		

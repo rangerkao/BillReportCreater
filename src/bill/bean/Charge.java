@@ -4,21 +4,21 @@ import java.util.List;
 
 public class Charge {
 
-	private String RecordFlag;//¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	private String AccountNum;//±b¤á½s¸¹(±b³æÁä­È)
-	private String ServiceCode;//¹q¸Ü¸¹½X
-	private String PostalCode;//¶l»¼°Ï¸¹
-	private String Addressee;//¦¬¥ó¤H
-	private String BillingAddress;//±b±H¦a§}
-	private String CustomerName;//«È¤á¦WºÙ(°ò©ó¹q¸Ü¸¹½X)
-	private String AccountName;//±b¸¹¦WºÙ
-	private String CycleBeginDate;//±b´Á¶}©l®É¶¡
-	private String CycleEndDate;//±b´Áµ²§ô®É¶¡
-	private String Priceplan;//»ù®æ­pµe¦WºÙ
-	private String TotalAmount;//±b³æÁ`ÃB
-	private String TotalChargeCount;//Á`¶O¥Î¶µµ§¼Æ
+	private String RecordFlag;//è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	private String AccountNum;//å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	private String ServiceCode;//é›»è©±è™Ÿç¢¼
+	private String PostalCode;//éƒµéå€è™Ÿ
+	private String Addressee;//æ”¶ä»¶äºº
+	private String BillingAddress;//å¸³å¯„åœ°å€
+	private String CustomerName;//å®¢æˆ¶åç¨±(åŸºæ–¼é›»è©±è™Ÿç¢¼)
+	private String AccountName;//å¸³è™Ÿåç¨±
+	private String CycleBeginDate;//å¸³æœŸé–‹å§‹æ™‚é–“
+	private String CycleEndDate;//å¸³æœŸçµæŸæ™‚é–“
+	private String Priceplan;//åƒ¹æ ¼è¨ˆç•«åç¨±
+	private String TotalAmount;//å¸³å–®ç¸½é¡
+	private String TotalChargeCount;//ç¸½è²»ç”¨é …ç­†æ•¸
 	
-	private String Data; //Bean ¤º®e¸ê®Æ
+	private String Data; //Bean å…§å®¹è³‡æ–™
 	
 	public Charge(){
 		

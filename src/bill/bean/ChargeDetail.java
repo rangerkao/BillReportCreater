@@ -4,17 +4,17 @@ import java.util.List;
 
 public class ChargeDetail {
 
-	private String recordFlag;//¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	private String accountNum;//±b¤á½s¸¹(±b³æÁä­È)
-	private String serviceCode;//¹q¸Ü¸¹½X
-	private String categorySequence;//¤ÀÃşÅã¥Ü¶¶§Ç
-	private String categoryName;//¤ÀÃş¦W
-	private String categoryAmountSummary;//¤ÀÃş¶µ¶O¥Î¤p­p
-	private String chargeItemSequence;//¶O¥Î¶µÅã¥Ü¶¶§Ç
-	private String chargeItemName;//¶O¥Î¶µ¦W
-	private String amount;//¶O¥ÎÃB«×
+	private String recordFlag;//è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	private String accountNum;//å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	private String serviceCode;//é›»è©±è™Ÿç¢¼
+	private String categorySequence;//åˆ†é¡é¡¯ç¤ºé †åº
+	private String categoryName;//åˆ†é¡å
+	private String categoryAmountSummary;//åˆ†é¡é …è²»ç”¨å°è¨ˆ
+	private String chargeItemSequence;//è²»ç”¨é …é¡¯ç¤ºé †åº
+	private String chargeItemName;//è²»ç”¨é …å
+	private String amount;//è²»ç”¨é¡åº¦
 	
-	private String Data; //Bean ¤º®e¸ê®Æ
+	private String Data; //Bean å…§å®¹è³‡æ–™
 
 	public ChargeDetail(){
 		

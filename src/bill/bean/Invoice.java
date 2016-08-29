@@ -2,31 +2,31 @@ package bill.bean;
 
 public class Invoice {
 	
-	private String RecordFlag;//¸ê®ÆÃş§O(ÃÑ§O¸ê®Æ®æ¦¡)
-	private String AccountNum;//±b¤á½s¸¹(±b³æÁä­È)
-	private String ServiceCode;//¹q¸Ü¸¹½X
-	private String CountryCode;//°ê®a½s½X
-	private String PostalCode;//¶l»¼°Ï¸¹
-	private String Addressee;//¦¬¥ó¤H
-	private String BillingAddress;//±b±H¦a§}
-	private String CustomerName;//«È¤á¦WºÙ(°ò©óAccount)
-	private String AccountName;//±b¸¹¦WºÙ
-	private String CycleBeginDate;//±b´Á¶}©l®É¶¡
-	private String CycleEndDate;//±b´Áµ²§ô®É¶¡
-	private String DueDate;//±b³æÀ³¥I®É­­
-	private String AccountBalance;//«e±b´Á¥Î¤á¤í¶O
-	private String PaymentPosted;//«e±b´Á¥Î¤á¥æ¶O
-	private String InvoiceNo;//±b³æ¸¹½X
-	private String TotalAmount;//±b³æÁ`ÃB
-	private String TotalAmountDue;//¤í´Ú¾lÃB
-	private String TotalChargeCount;//Á`¶O¥Î¶µµ§¼Æ
-	private String Balance;//«e±b´ÁÀ³Ãº¾lÃB
-	private String ServiceCodeCount;//¹q¸Üµ§¼Æ
-	private String BillingAddressLine1;//±b±H¦a§}¦æ¤@
-	private String BillingAddressLine2;//±b±H¦a§}¦æ¤G
-	private String PaymentMethod;//¥I´Ú¤è¦¡
+	private String RecordFlag;//è³‡æ–™é¡åˆ¥(è­˜åˆ¥è³‡æ–™æ ¼å¼)
+	private String AccountNum;//å¸³æˆ¶ç·¨è™Ÿ(å¸³å–®éµå€¼)
+	private String ServiceCode;//é›»è©±è™Ÿç¢¼
+	private String CountryCode;//åœ‹å®¶ç·¨ç¢¼
+	private String PostalCode;//éƒµéå€è™Ÿ
+	private String Addressee;//æ”¶ä»¶äºº
+	private String BillingAddress;//å¸³å¯„åœ°å€
+	private String CustomerName;//å®¢æˆ¶åç¨±(åŸºæ–¼Account)
+	private String AccountName;//å¸³è™Ÿåç¨±
+	private String CycleBeginDate;//å¸³æœŸé–‹å§‹æ™‚é–“
+	private String CycleEndDate;//å¸³æœŸçµæŸæ™‚é–“
+	private String DueDate;//å¸³å–®æ‡‰ä»˜æ™‚é™
+	private String AccountBalance;//å‰å¸³æœŸç”¨æˆ¶æ¬ è²»
+	private String PaymentPosted;//å‰å¸³æœŸç”¨æˆ¶äº¤è²»
+	private String InvoiceNo;//å¸³å–®è™Ÿç¢¼
+	private String TotalAmount;//å¸³å–®ç¸½é¡
+	private String TotalAmountDue;//æ¬ æ¬¾é¤˜é¡
+	private String TotalChargeCount;//ç¸½è²»ç”¨é …ç­†æ•¸
+	private String Balance;//å‰å¸³æœŸæ‡‰ç¹³é¤˜é¡
+	private String ServiceCodeCount;//é›»è©±ç­†æ•¸
+	private String BillingAddressLine1;//å¸³å¯„åœ°å€è¡Œä¸€
+	private String BillingAddressLine2;//å¸³å¯„åœ°å€è¡ŒäºŒ
+	private String PaymentMethod;//ä»˜æ¬¾æ–¹å¼
 	
-	private String Data;//Bean ¤º®e¸ê®Æ
+	private String Data;//Bean å…§å®¹è³‡æ–™
 
 	public Invoice(){};
 	

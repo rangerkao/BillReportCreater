@@ -1,3 +1,4 @@
+import java.awt.datatransfer.SystemFlavorMap;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,6 +10,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
 
 
 
@@ -73,7 +76,7 @@ public class BillReport{
 		 * 1 A4
 		 * 2 Letter
 		 */
-		process(filePath+"/"+"FET_201501_PDF.txt",3,1);
+		process(filePath+"/"+"S2T_201607_PDF_with_Usage_UTF8.txt",1,1);
 	}
 	JTextArea textPane=null;
 	
@@ -89,7 +92,7 @@ public class BillReport{
 		templatePath="";
 		
 		if(arg.length<2){
-			System.out.println("Parameter too less!");
+			print("Parameter too less!");
 			return;
 		}
 		
@@ -100,18 +103,21 @@ public class BillReport{
 		String charSet=null;
 		if(arg.length>=4){
 			charSet=arg[3];
-			System.out.println("Set charSet "+charSet);
+			print("Set charSet "+charSet);
 		}
 		process(arg[0],Integer.valueOf(arg[2]),type2,charSet);
 	}
 	private static String FileName;
 	//private static final String filePath =BillReport.class.getClassLoader().getResource("").toString().replace("file:", "")+ "source/";
 	
-	String filePath="G:/MegaSync/projectData/data/billExport/source";
+	String filePath="C:/Users/ranger.kao/Desktop";
 	String templatePath="G:/MegaSync/workspace/BillReportCreater/src/";
 	String exportPath="C:/Users/ranger.kao/Desktop/bill";
 	
 	public static void main(String[] args){
+		
+		args = new String[]{"C:/Users/ranger.kao/Desktop/S2T_201607_PDF_with_Usage_UTF8.txt","C:/Users/ranger.kao/Desktop/bill","1","UTF-8"};
+		
 		if(args.length<3)
 			new BillReport();
 		else
@@ -723,8 +729,7 @@ public class BillReport{
 
 		//Build Usage Charge
 		map.put("Balance", data.getJ());
-		map.put("applied date", data.getI().getDueDate());
-
+		map.put("applied date", data.getI().getDueDate());		
 		map.put("PaymentMethod", data.getI().getPaymentMethod());
 		
 		

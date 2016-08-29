@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bill2_charge" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="76d8b797-b567-419f-b743-76d9cb33953d">
 	<property name="ireport.zoom" value="2.1435888100000016"/>
-	<property name="ireport.x" value="401"/>
+	<property name="ireport.x" value="488"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="totalCurrentCharge" class="java.lang.Double"/>
 	<parameter name="Currency" class="java.lang.String"/>
@@ -16,7 +16,7 @@
 	<field name="chargeItemName" class="java.lang.String"/>
 	<field name="serviceCode" class="java.lang.String"/>
 	<variable name="CategoryCount" class="java.lang.Double" resetType="Group" resetGroup="chargeCategory" calculation="Sum">
-		<variableExpression><![CDATA[Double.valueOf($F{amount})]]></variableExpression>
+		<variableExpression><![CDATA[$F{amount}==null||"".equals($F{amount}.trim())?0D:Double.valueOf($F{amount})]]></variableExpression>
 		<initialValueExpression><![CDATA[Double.valueOf("0.00")]]></initialValueExpression>
 	</variable>
 	<group name="chargeCategory">
@@ -53,7 +53,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{amount}==null?"0.00":new DecimalFormat("#,##0.00").format(Double.valueOf($F{amount}))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{amount}==null?"":$F{amount}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="57" y="0" width="322" height="15" uuid="3e902db8-435b-4369-9541-a7f397571af0"/>

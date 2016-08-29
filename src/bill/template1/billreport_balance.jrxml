@@ -15,7 +15,7 @@
 		<initialValueExpression><![CDATA["0.00"]]></initialValueExpression>
 	</variable>
 	<variable name="currentTotal" class="java.lang.Double" calculation="Sum">
-		<variableExpression><![CDATA[Double.valueOf($F{amount}==null||"".equals($F{amount})?"0":$F{amount})]]></variableExpression>
+		<variableExpression><![CDATA[Double.valueOf($F{amount}==null||"".equals($F{amount})?"0.00":$F{amount})]]></variableExpression>
 		<initialValueExpression><![CDATA[Double.valueOf("0.00")]]></initialValueExpression>
 	</variable>
 	<variable name="currentTotal1" class="java.lang.String">
@@ -124,7 +124,7 @@
 				<textElement textAlignment="Right">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[($F{amount}==null?"":new DecimalFormat("#,##0.00").format(Double.valueOf($F{amount})))]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{amount}==null||"".equals($F{amount})?"":new DecimalFormat("#,##0.00").format(Double.valueOf($F{amount})))]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="0" y="0" width="1" height="15" uuid="c3f52e74-3c0f-4c83-b0a6-5ec44567f4d1"/>
