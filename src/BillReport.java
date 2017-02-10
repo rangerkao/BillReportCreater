@@ -116,7 +116,7 @@ public class BillReport{
 	
 	public static void main(String[] args){
 		
-		args = new String[]{"C:/Users/ranger.kao/Desktop/S2T_201607_PDF_with_Usage_UTF8.txt","C:/Users/ranger.kao/Desktop/bill","1","UTF-8"};
+		//args = new String[]{"C:/Users/ranger.kao/Desktop/S2T_201607_PDF_with_Usage_UTF8.txt","C:/Users/ranger.kao/Desktop/bill","1","UTF-8"};
 		
 		if(args.length<3)
 			new BillReport();
@@ -716,7 +716,7 @@ public class BillReport{
 		
 		String accountName = data.getI().getAccountName();
 		if(accountName!=null){
-			accountName = mark(accountName,accountName.length()-5,accountName.length());
+			accountName = mark(accountName,accountName.length()-6,accountName.length()-4,"*");
 		}
 		map.put("Account Number", accountName);
 			
@@ -769,7 +769,22 @@ public class BillReport{
 
 		return map;
 	}
-	
+	private String mark(String s,int start,int end,String replace){
+		if(start < 0) start = 0;
+		if(end < 0 ) end = 0;
+		
+		String result = "";
+		for(int i = 0 ; i< s.length() ; i++){
+			if(start<=i+1 && i+1<= end){
+				result += replace;
+			}
+			else{
+				result += s.charAt(i);
+			}
+		}
+		
+		return result;
+	}
 	private Map<String,Object> setReportParameter2(BillData data,int type){
 		//參數設置
 		Map<String,Object> map=new HashMap<String,Object>();
@@ -785,10 +800,9 @@ public class BillReport{
 		
 		String serviceCode = data.getBS().get(0).getU1().getServiceCode();
 		
-		if(serviceCode!=null && serviceCode.length()>=5){
-			serviceCode = 
-					serviceCode.substring(0, serviceCode.length()-5)
-					+ "*****";
+		if(serviceCode!=null ){
+			//20170209 mod
+			serviceCode = mark(serviceCode,serviceCode.length()-6 , serviceCode.length()-4, "*");
 			data.getBS().get(0).getU1().setServiceCode(serviceCode);
 		}
 		
@@ -1053,7 +1067,7 @@ public class BillReport{
 		return map;
 	}
 	
-	public String mark(String str,int start,int end){
+/*	public String mark(String str,int start,int end){
 		
 		if(str.length()<end)
 			return null;
@@ -1067,5 +1081,5 @@ public class BillReport{
 		str = str.substring(0, start) + star + str.substring(end, str.length());
 		
 		return str;
-	}
+	}*/
 }
