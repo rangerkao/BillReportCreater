@@ -505,7 +505,7 @@ public class BillReport{
 
 		return r;
 	}
-	
+	//1,11 S2T,2 NTT
 	private Map<String,Object> setReportParameter1(BillData data,int type){
 		//參數設置
 		Map<String,Object> map=new HashMap<String,Object>();
@@ -522,13 +522,13 @@ public class BillReport{
 		if(type==1||type==11){
 			imageName="sim2travel.jpg";
 			contactTitle="How to contact us:";
-			contactInfo="Call +886-960-840-112"+"\n"
+			contactInfo="Call +886-972-900-112"+"\n"
 					+ "\n"
 					+ "Or write:"+"\n"
 					+ "P.O. Box 81-875 Taipei"+"\n"
 					+ "Taipei City 10599"+"\n"
 					+ "Taiwan R.O.C.";
-			customerServiceNumber="+886-960-840-112";
+			customerServiceNumber="+886-972-900-112";
 			generalInfo = "1. All charges in this bill are in Hong Kong Dollars (HKD).\n"
 					+ "\n"
 					+ "2. \"Monthly Service Charges\" may be billed in advance or arrears depending on selected services.\n"
@@ -538,11 +538,11 @@ public class BillReport{
 					+ "4. Calls to our Customer Service Centers may be monitored to ensure high quality service to our customers.\n"
 					+ "\n"
 					+ "5. Questions About Your Bill or Service: If you have any questions about your bill, or concerns about your service,\n"
-					+ "   please contact our Customer Care representatives at:+886-960-840-112 or you may write to Customer Care at:\n"
+					+ "   please contact our Customer Care representatives at:+886-972-900-112 or you may write to Customer Care at:\n"
 					+ "   P.O. Box 81-875 Taipei, Taipei City 10599, Taiwan R.O.C.\n"
 					+ "\n"
 					+ "6. For more information, please contact our 24-hour customer service representatives:\n"
-					+ "   •Taiwan: +886960840112\n"
+					+ "   •Taiwan: +886972900112\n"
 					+ "   •Hong Kong: +85266400112\n"
 					+ "   •China: +8613910480112\n"
 					+ "   •You can also reach us via your Sim2Travel phone: simply dial *123# or access the \"Sim2Travel\" menu option from "
@@ -805,6 +805,8 @@ public class BillReport{
 			serviceCode = mark(serviceCode,serviceCode.length()-6 , serviceCode.length()-4, "*");
 			data.getBS().get(0).getU1().setServiceCode(serviceCode);
 		}
+		//20170428
+		map.put("customerServiceNumber", "Customer Service Number:\nTaiwan: +886 972901009\nHong Kong: +852 66409009\nChina: +86 13910489009");
 		
 		map.put("serviceCode", data.getBS().get(0).getU1().getServiceCode());
 		map.put("Billing Period", data.getBS().get(0).getU1().getCycleBeginDate()+"~"+data.getBS().get(0).getU1().getCycleEndDate());
@@ -987,14 +989,14 @@ public class BillReport{
 				+ "1. 舊有通信明細的分類方式以「合作夥伴國家」和「非合作夥伴國家」的方式排列；從2008/9/1起，通信明細分類方式將改為「國際服務費」"
 				+ "和「全球卡境外通信費」。\n"
 				+ "2. 所有通信明細依照上述分類後，將依通話時間排序，方便您對照所有通話的時間。若有任何問題請洽全球卡客服 +886277381258 或 "
-				+ "+886960847009。\n"
+				+ "+886972901009。\n"
 				+ "國際服務費：在合作夥伴國家接聽從台灣轉接的來電的通話費\n"
 				+ "全球卡境外通信費：包含合作夥伴國家與非合作夥伴國家的通話費\n"
 				+ "Starting from 2008/9/1 World Card’s call detail report’s display order and column will be adjusted.\n"
 				+ "1. World Card’s call detail report’s column will be adjusted from “Partner Networks” and “Non-Partner Network” to "
 				+ "\"Roaming Charges\" and \"IDD transit from Taiwan\".\n"
 				+ "2. World Card’s call detail report display order will be adjusted according to the calls’ date and time.  "
-				+ "Please contact your World Card customer service representative at +886277381258 or +886960847009 for further assistant.\n"
+				+ "Please contact your World Card customer service representative at +886277381258 or +886972901009 for further assistant.\n"
 				+ "Roaming Charges: Includes your roaming charges in partner networks or non-partner networks.\n"
 				+ "IDD transit from Taiwan: IDD transit from Taiwan while receiving the calls in partner networks.";
 		map.put("Info", info);

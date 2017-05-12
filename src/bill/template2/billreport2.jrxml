@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="868c74a1-0c15-4304-864c-d7429631e3aa">
 	<property name="ireport.zoom" value="1.3310000000000133"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="1008"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="serviceCode" class="java.lang.String"/>
 	<parameter name="Billing Period" class="java.lang.String"/>
@@ -31,6 +31,7 @@
 	<parameter name="BillItemInfoT" class="java.lang.String"/>
 	<parameter name="BillItemInfoTE" class="java.lang.String"/>
 	<parameter name="BillItemInfoE" class="java.lang.String"/>
+	<parameter name="customerServiceNumber" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -50,16 +51,6 @@
 
 
 ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="0" width="150" height="72" uuid="c0b2dc89-8249-44c2-bf29-b52066e7e7de"/>
-				<textElement>
-					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
-				</textElement>
-				<text><![CDATA[Customer Service Number:
-Taiwan: +886 960847009
-Hong Kong: +852 66409009
-China: +86 13910489009]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="380" y="2" width="20" height="14" uuid="6fa5ff72-1a68-4b07-bf43-4c816778aaeb"/>
@@ -110,6 +101,13 @@ China: +86 13910489009]]></text>
 				</textElement>
 				<text><![CDATA[Statement for : ]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="0" y="-1" width="150" height="72" uuid="af800705-f6ed-4a57-8e86-683e04edc899"/>
+				<textElement>
+					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customerServiceNumber}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>

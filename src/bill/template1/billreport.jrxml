@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport2_" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ff95a03-1502-4644-a17a-b5af9857d4a2">
-	<property name="ireport.zoom" value="1.1000000000000205"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="2066"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="428"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="address for" class="java.lang.String"/>
 	<parameter name="Statement for" class="java.lang.String"/>
 	<parameter name="Account Number" class="java.lang.String"/>
@@ -59,14 +59,14 @@
 				<textFieldExpression><![CDATA[$P{address for}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="289" y="255" width="255" height="69" uuid="8a8d8930-a0e4-42d0-be39-b570282b7a94">
+				<reportElement positionType="Float" x="289" y="255" width="262" height="69" uuid="8a8d8930-a0e4-42d0-be39-b570282b7a94">
 					<printWhenExpression><![CDATA["2".equals($P{PaymentMethod})]]></printWhenExpression>
 				</reportElement>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="7" isBold="false" isItalic="true" pdfFontName="Times-Italic" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Sim2Travel (Blue Ocean Alliance & rMVNO) currently accepts payment by VISA or MasterCard only.
-By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credit card.  I can change my credit card on file simply by dialing +886960840112 and notifying Sim2Travel of my request.]]></text>
+By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credit card.  I can change my credit card on file simply by dialing +886-972-900-112 and notifying Sim2Travel of my request.]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-2" y="471" width="554" height="1" uuid="22874c42-f4f6-4446-be32-ba10f340a61c">
@@ -198,7 +198,7 @@ By enrolling, I authorize Sim2Travel to pay my bill monthly by charging my credi
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[http://www.sim2travel.com/tariff/rateplan.asp	]]></text>
+				<text><![CDATA[http://www.sim2travel.com/index.php/tariff]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="2" y="663" width="267" height="20" uuid="1bc9204b-9d95-4958-b6c7-26e12b42335d">
