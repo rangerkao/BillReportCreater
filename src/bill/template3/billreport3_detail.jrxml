@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="billreport3_detail" pageWidth="555" pageHeight="790" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="92b497ab-1d65-4028-bce2-e15828976ccd">
 	<property name="ireport.zoom" value="1.210000000000015"/>
 	<property name="ireport.x" value="0"/>
@@ -48,18 +49,18 @@
 	<pageHeader>
 		<band height="15">
 			<textField>
-				<reportElement x="377" y="1" width="20" height="14" uuid="043293ea-bba9-4b77-bea5-6bb1408f2601"/>
+				<reportElement x="387" y="1" width="20" height="14" uuid="043293ea-bba9-4b77-bea5-6bb1408f2601"/>
 				<textElement textAlignment="Right">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER})+"  /"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="397" y="1" width="21" height="14" uuid="046bbf01-6a21-42a4-8086-138463fc0b0b"/>
+				<reportElement x="407" y="1" width="21" height="14" uuid="046bbf01-6a21-42a4-8086-138463fc0b0b"/>
 				<textElement>
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
-				<textFieldExpression><![CDATA["  "+($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER}+1)]]></textFieldExpression>
+				<textFieldExpression><![CDATA["  "+($V{PAGE_NUMBER}+$P{PRE_PAGE_NUMBER})]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="360" y="1" width="185" height="14" uuid="b05e5f81-9380-4ef5-a788-3c373a56abed"/>
@@ -71,7 +72,7 @@
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="692" splitType="Stretch">
+		<band height="690" splitType="Stretch">
 			<subreport>
 				<reportElement x="0" y="0" width="555" height="58" uuid="dd380bd3-8dec-4bb6-b1f6-ba341d73412a"/>
 				<subreportParameter name="PRE_PAGE_NUMBER">
@@ -96,31 +97,31 @@
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_charge.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="667" width="555" height="25" backcolor="#CCCCCC" uuid="a906c840-b95f-462e-ae56-f31ffce0e181"/>
+				<reportElement mode="Opaque" x="0" y="665" width="555" height="25" backcolor="#CCCCCC" uuid="a906c840-b95f-462e-ae56-f31ffce0e181"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[  通信服務費合計]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="447" y="667" width="100" height="25" uuid="9b960adc-b29a-4823-bc4d-44fc50e268eb"/>
+				<reportElement x="447" y="665" width="100" height="25" uuid="9b960adc-b29a-4823-bc4d-44fc50e268eb"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new DecimalFormat("#,##0.00").format(Double.valueOf($F{totalAmount}))]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="313" y="667" width="100" height="25" uuid="d4319238-f869-40f5-8e8f-12e2ca66cffe"/>
+				<reportElement x="313" y="665" width="100" height="25" uuid="d4319238-f869-40f5-8e8f-12e2ca66cffe"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Source Han Sans TC Normal" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{Currency}]]></textFieldExpression>
 			</textField>
 		</band>
-		<band height="68">
+		<band height="40">
 			<printWhenExpression><![CDATA[$F{u1total}!=null]]></printWhenExpression>
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="68" uuid="0351ce85-197d-49f2-9e5e-3de94357a2cb"/>
+				<reportElement x="0" y="0" width="555" height="40" uuid="0351ce85-197d-49f2-9e5e-3de94357a2cb"/>
 				<subreportParameter name="PRE_PAGE_NUMBER">
 					<subreportParameterExpression><![CDATA[$P{PRE_PAGE_NUMBER}+$V{PAGE_NUMBER}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -161,10 +162,10 @@
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "billreport3_usage.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="68">
+		<band height="40">
 			<printWhenExpression><![CDATA[$F{u2total}!=null]]></printWhenExpression>
 			<subreport>
-				<reportElement x="0" y="0" width="555" height="68" uuid="ecff73b1-5dba-4dbe-9fe3-f929d7cd924e"/>
+				<reportElement x="0" y="0" width="555" height="40" uuid="ecff73b1-5dba-4dbe-9fe3-f929d7cd924e"/>
 				<subreportParameter name="PRE_PAGE_NUMBER">
 					<subreportParameterExpression><![CDATA[$P{PRE_PAGE_NUMBER}+$V{PAGE_NUMBER}]]></subreportParameterExpression>
 				</subreportParameter>
